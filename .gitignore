@@ -13,3 +13,5 @@ outputs/*
 offline-output/
 outputs/offline-cli/
 .agents/
+
+src/*.egg-info/

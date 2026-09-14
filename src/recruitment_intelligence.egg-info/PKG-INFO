@@ -1,9 +1,0 @@
-Metadata-Version: 2.4
-Name: recruitment-intelligence
-Version: 0.2.0
-Summary: Evidence-backed recruitment analytics over read-only Airtable data
-Requires-Python: >=3.11
-Provides-Extra: dev
-Requires-Dist: pytest>=8; extra == "dev"
-Requires-Dist: ruff>=0.6; extra == "dev"
-Requires-Dist: mypy>=1.10; extra == "dev"
