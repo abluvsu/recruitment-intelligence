@@ -16,7 +16,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Protocol
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
 
 
@@ -62,8 +62,11 @@ class SchemaProfile:
 def _default_transport(
     url: str, *, headers: Mapping[str, str], params: Mapping[str, str]
 ) -> AirtableResponse:
+    parts = urlsplit(url)
+    safe_path = quote(parts.path, safe="/")
+    quoted_url = urlunsplit((parts.scheme, parts.netloc, safe_path, parts.query, parts.fragment))
     query = urlencode(dict(params))
-    request = Request(f"{url}?{query}" if query else url, headers=dict(headers), method="GET")
+    request = Request(f"{quoted_url}?{query}" if query else quoted_url, headers=dict(headers), method="GET")
     try:
         with urlopen(request, timeout=30) as response:  # noqa: S310 - URL is caller-configured
             raw = response.read()
