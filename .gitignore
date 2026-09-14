@@ -1,5 +1,6 @@
 __pycache__/
 *.py[cod]
+.env
 .pytest_cache/
 pytest-cache-files-*/
 pytest-temp*/
@@ -13,5 +14,4 @@ outputs/*
 offline-output/
 outputs/offline-cli/
 .agents/
-
-src/*.egg-info/
+*.egg-info/
