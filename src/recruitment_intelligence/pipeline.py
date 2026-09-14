@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -15,6 +16,7 @@ from typing import Any, Mapping
 
 from .agents.advisory_queue import generate_advisory_actions
 from .analytics.engine import AnalyticsEngine, AnalyticsResult
+from .airtable import AirtableClient, CANONICAL_TABLES, ingest_snapshot
 from .domain import Briefing, MetricClaim
 from .outputs.briefing import generate_executive_briefing
 from .outputs.renderers import write_artifacts
@@ -27,6 +29,52 @@ DEFAULT_SNAPSHOT_LOCATIONS = (
     Path("fixtures/clean_snapshot.json"),
     Path("fixtures/recruitment_snapshot.json"),
 )
+
+
+def _load_dotenv(path: str | Path = ".env") -> None:
+    """Load simple KEY=VALUE entries without adding a runtime dependency.
+
+    Existing environment variables always win. Values are never printed or
+    included in snapshots; this only makes the documented ``.env`` workflow
+    work for the command-line entry point.
+    """
+    env_path = Path(path)
+    if not env_path.is_file():
+        return
+    for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key and key in {"AIRTABLE_API_KEY", "AIRTABLE_BASE_ID", "AIRTABLE_API_URL", "AIRTABLE_TABLES", "AIRTABLE_CACHE_DIR", "AIRTABLE_SNAPSHOT_PATH"}:
+            os.environ.setdefault(key, value)
+
+
+def load_live_snapshot(
+    *,
+    output_path: str | Path | None = None,
+    cache_dir: str | Path | None = None,
+    tables: tuple[str, ...] = CANONICAL_TABLES,
+    refresh: bool = True,
+) -> dict[str, list[dict[str, Any]]]:
+    """Fetch current Airtable data with read-only GETs and cache one snapshot."""
+    _load_dotenv()
+    configured_tables = tuple(
+        item.strip() for item in os.getenv("AIRTABLE_TABLES", "").split(",") if item.strip()
+    )
+    requested_tables = configured_tables or tables
+    client = AirtableClient(
+        base_url=os.getenv("AIRTABLE_API_URL", "https://api.airtable.com/v0"),
+        cache_dir=cache_dir or os.getenv("AIRTABLE_CACHE_DIR"),
+    )
+    return ingest_snapshot(
+        client,
+        tables=requested_tables,
+        output_path=output_path or os.getenv("AIRTABLE_SNAPSHOT_PATH", "data/raw/airtable_snapshot.json"),
+        use_cache=not refresh,
+    )
 
 
 def load_snapshot(snapshot_path: str | Path | None = None) -> dict[str, list[dict[str, Any]]]:
@@ -50,6 +98,9 @@ def run_pipeline(
     as_of: date | datetime | str | None = None,
     include_cost_appendix: bool = True,
     period: str = "daily",
+    live: bool = False,
+    cache_dir: str | Path | None = None,
+    refresh: bool = True,
 ) -> dict[str, Any]:
     """Execute complete offline intelligence pipeline and write output artifacts.
 
@@ -67,7 +118,14 @@ def run_pipeline(
     - sensitivity: SensitivityReport
     - artifacts: Mapping[str, Path]
     """
-    if isinstance(snapshot, (str, Path)) or snapshot is None:
+    if live:
+        _load_dotenv()
+        tables = load_live_snapshot(
+            output_path=None,
+            cache_dir=cache_dir,
+            refresh=refresh,
+        )
+    elif isinstance(snapshot, (str, Path)) or snapshot is None:
         tables = load_snapshot(snapshot)
     elif isinstance(snapshot, Mapping):
         tables = {str(k): list(v) for k, v in snapshot.items() if isinstance(v, list)}
@@ -132,6 +190,22 @@ def main(argv: list[str] | None = None) -> int:
         help="Path to cached Airtable JSON snapshot (defaults to data/raw or fixtures)",
     )
     parser.add_argument(
+        "--live",
+        action="store_true",
+        help="Fetch current Airtable tables using AIRTABLE_API_KEY and AIRTABLE_BASE_ID",
+    )
+    parser.add_argument(
+        "--cache-dir",
+        type=Path,
+        default=None,
+        help="Per-table Airtable response cache directory",
+    )
+    parser.add_argument(
+        "--no-refresh",
+        action="store_true",
+        help="Replay per-table cache files in live mode instead of fetching current pages",
+    )
+    parser.add_argument(
         "--output-dir",
         type=Path,
         default=Path("outputs"),
@@ -151,11 +225,16 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     try:
+        if args.live and args.snapshot is not None:
+            parser.error("provide either SNAPSHOT or --live, not both")
         results = run_pipeline(
             snapshot=args.snapshot,
             output_dir=args.output_dir,
             as_of=args.as_of,
             include_cost_appendix=not args.no_cost_appendix,
+            live=args.live,
+            cache_dir=args.cache_dir,
+            refresh=not args.no_refresh,
         )
         print(f"Pipeline executed successfully. Artifacts written to {args.output_dir}:")
         for name, path in sorted(results["artifacts"].items()):

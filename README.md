@@ -5,7 +5,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg?logo=python&logoColor=white)](https://python.org)
-[![Tests](https://img.shields.io/badge/Tests-483%20passed-brightgreen.svg)](tests/)
+[![Tests](https://img.shields.io/badge/Tests-485%20passed-brightgreen.svg)](tests/)
 [![Offline First](https://img.shields.io/badge/Offline-First-orange.svg)](#offline-first)
 [![AI Agent Ready](https://img.shields.io/badge/AI%20Agent-Ready-8A2BE2.svg)](#use-with-ai-coding-agents)
 
@@ -135,8 +135,11 @@ cp .env.example .env
 ### Run
 
 ```bash
-# Run with live Airtable data
-python -m recruitment_intelligence.pipeline --output-dir outputs/live
+# Run with live Airtable data using AIRTABLE_API_KEY and AIRTABLE_BASE_ID from .env
+python -m recruitment_intelligence.pipeline --live --output-dir outputs/live
+
+# Pin the analysis date for reproducible live reports
+python -m recruitment_intelligence.pipeline --live --as-of 2025-02-01 --output-dir outputs/live
 
 # Run offline with synthetic fixtures (no credentials needed)
 python -m recruitment_intelligence.pipeline fixtures/clean_snapshot.json --output-dir outputs/demo
