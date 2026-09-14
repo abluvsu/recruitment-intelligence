@@ -52,3 +52,15 @@ def test_run_pipeline_live_uses_fetched_snapshot_and_writes_artifacts(monkeypatc
     assert result["briefing"].generated_at == "2025-02-01T00:00:00+00:00"
     assert (tmp_path / "outputs" / "briefing.json").is_file()
     assert (tmp_path / "outputs" / "findings.json").is_file()
+
+
+def test_load_live_snapshot_replays_aggregate_snapshot_without_credentials(monkeypatch, tmp_path: Path):
+    snapshot_path = tmp_path / "snapshot.json"
+    snapshot_path.write_text(json.dumps({"Applications": [{"id": "app-1"}]}), encoding="utf-8")
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.delenv("AIRTABLE_API_KEY", raising=False)
+    monkeypatch.delenv("AIRTABLE_BASE_ID", raising=False)
+
+    assert pipeline.load_live_snapshot(output_path=snapshot_path, refresh=False) == {
+        "Applications": [{"id": "app-1"}]
+    }

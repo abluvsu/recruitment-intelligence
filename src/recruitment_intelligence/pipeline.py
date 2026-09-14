@@ -16,7 +16,7 @@ from typing import Any, Mapping
 
 from .agents.advisory_queue import generate_advisory_actions
 from .analytics.engine import AnalyticsEngine, AnalyticsResult
-from .airtable import AirtableClient, CANONICAL_TABLES, ingest_snapshot
+from .airtable import AirtableClient, CANONICAL_TABLES, ingest_snapshot, load_snapshot as load_airtable_snapshot
 from .domain import Briefing, MetricClaim
 from .outputs.briefing import generate_executive_briefing
 from .outputs.renderers import write_artifacts
@@ -61,6 +61,11 @@ def load_live_snapshot(
 ) -> dict[str, list[dict[str, Any]]]:
     """Fetch current Airtable data with read-only GETs and cache one snapshot."""
     _load_dotenv()
+    snapshot_path = Path(
+        output_path or os.getenv("AIRTABLE_SNAPSHOT_PATH", "data/raw/airtable_snapshot.json")
+    )
+    if not refresh and snapshot_path.is_file():
+        return load_airtable_snapshot(snapshot_path)
     configured_tables = tuple(
         item.strip() for item in os.getenv("AIRTABLE_TABLES", "").split(",") if item.strip()
     )
@@ -72,7 +77,7 @@ def load_live_snapshot(
     return ingest_snapshot(
         client,
         tables=requested_tables,
-        output_path=output_path or os.getenv("AIRTABLE_SNAPSHOT_PATH", "data/raw/airtable_snapshot.json"),
+        output_path=snapshot_path,
         use_cache=not refresh,
     )
 
