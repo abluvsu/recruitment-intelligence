@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-cache-files-*/
+pytest-temp*/
+tmp-test/
+.tmp/
+.venv/
+data/raw/*
+data/processed/*
+outputs/*
+!outputs/.gitkeep
+offline-output/
+outputs/offline-cli/
+.agents/

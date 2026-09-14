@@ -1,0 +1,391 @@
+{
+  "Departments": [
+    {
+      "id": "dep-valid-1",
+      "name": "Engineering",
+      "fields": {
+        "name": "Engineering"
+      }
+    },
+    {
+      "id": "dep-dirty-missing-name",
+      "name": "",
+      "fields": {
+        "name": ""
+      }
+    }
+  ],
+  "People": [
+    {
+      "id": "per-valid-1",
+      "name": "Alice Recruiter",
+      "role": "Recruiter",
+      "fields": {
+        "name": "Alice Recruiter",
+        "role": "Recruiter"
+      }
+    }
+  ],
+  "Job Openings": [
+    {
+      "id": "job-valid-1",
+      "title": "Platform Engineer",
+      "department_id": "dep-valid-1",
+      "status": "open",
+      "opened_at": "2025-01-01",
+      "fields": {
+        "title": "Platform Engineer",
+        "department_id": "dep-valid-1",
+        "status": "open",
+        "opened_at": "2025-01-01"
+      }
+    },
+    {
+      "id": "job-dirty-missing-title",
+      "title": "",
+      "department_id": "dep-valid-1",
+      "status": "open",
+      "fields": {
+        "title": "",
+        "department_id": "dep-valid-1",
+        "status": "open"
+      }
+    },
+    {
+      "id": "job-dirty-orphan-dept",
+      "title": "DevOps Engineer",
+      "department_id": "dep-missing-404",
+      "status": "open",
+      "fields": {
+        "title": "DevOps Engineer",
+        "department_id": "dep-missing-404",
+        "status": "open"
+      }
+    },
+    {
+      "id": "job-dirty-chrono",
+      "title": "Security Engineer",
+      "department_id": "dep-valid-1",
+      "status": "closed",
+      "opened_at": "2025-03-01",
+      "closed_at": "2025-01-01",
+      "fields": {
+        "title": "Security Engineer",
+        "department_id": "dep-valid-1",
+        "status": "closed",
+        "opened_at": "2025-03-01",
+        "closed_at": "2025-01-01"
+      }
+    }
+  ],
+  "Candidates": [
+    {
+      "id": "cand-valid-1",
+      "name": "Valid Candidate",
+      "person_id": "per-valid-1",
+      "status": "active",
+      "fields": {
+        "name": "Valid Candidate",
+        "person_id": "per-valid-1",
+        "status": "active"
+      }
+    },
+    {
+      "id": "cand-dirty-orphan-person",
+      "name": "Orphan Person Candidate",
+      "person_id": "per-missing-404",
+      "status": "active",
+      "fields": {
+        "name": "Orphan Person Candidate",
+        "person_id": "per-missing-404",
+        "status": "active"
+      }
+    },
+    {
+      "id": "cand-dirty-bad-status",
+      "name": "Bad Status Candidate",
+      "person_id": "per-valid-1",
+      "status": "pending_coffee",
+      "fields": {
+        "name": "Bad Status Candidate",
+        "person_id": "per-valid-1",
+        "status": "pending_coffee"
+      }
+    }
+  ],
+  "Applications": [
+    {
+      "id": "app-valid-1",
+      "candidate_id": "cand-valid-1",
+      "job_id": "job-valid-1",
+      "source": "Referral",
+      "status": "interview",
+      "applied_at": "2025-01-05",
+      "updated_at": "2025-01-20",
+      "fields": {
+        "candidate_id": "cand-valid-1",
+        "job_id": "job-valid-1",
+        "source": "Referral",
+        "status": "interview",
+        "applied_at": "2025-01-05",
+        "updated_at": "2025-01-20"
+      }
+    },
+    {
+      "id": "app-dirty-missing-cand",
+      "candidate_id": "",
+      "job_id": "job-valid-1",
+      "source": "Referral",
+      "status": "screening",
+      "fields": {
+        "candidate_id": "",
+        "job_id": "job-valid-1",
+        "source": "Referral",
+        "status": "screening"
+      }
+    },
+    {
+      "id": "app-dirty-dup",
+      "candidate_id": "cand-valid-1",
+      "job_id": "job-valid-1",
+      "source": "Referral",
+      "status": "screening",
+      "fields": {
+        "candidate_id": "cand-valid-1",
+        "job_id": "job-valid-1",
+        "source": "Referral",
+        "status": "screening"
+      }
+    },
+    {
+      "id": "app-dirty-dup",
+      "candidate_id": "cand-valid-1",
+      "job_id": "job-valid-1",
+      "source": "Referral",
+      "status": "screening",
+      "fields": {
+        "candidate_id": "cand-valid-1",
+        "job_id": "job-valid-1",
+        "source": "Referral",
+        "status": "screening"
+      }
+    },
+    {
+      "id": "app-dirty-orphan-cand",
+      "candidate_id": "cand-missing-404",
+      "job_id": "job-valid-1",
+      "source": "Referral",
+      "status": "hired",
+      "applied_at": "2025-01-02",
+      "updated_at": "2025-01-20",
+      "fields": {
+        "candidate_id": "cand-missing-404",
+        "job_id": "job-valid-1",
+        "source": "Referral",
+        "status": "hired",
+        "applied_at": "2025-01-02",
+        "updated_at": "2025-01-20"
+      }
+    },
+    {
+      "id": "app-dirty-orphan-job",
+      "candidate_id": "cand-valid-1",
+      "job_id": "job-missing-404",
+      "source": "Job board",
+      "status": "applied",
+      "fields": {
+        "candidate_id": "cand-valid-1",
+        "job_id": "job-missing-404",
+        "source": "Job board",
+        "status": "applied"
+      }
+    },
+    {
+      "id": "app-dirty-bad-date",
+      "candidate_id": "cand-valid-1",
+      "job_id": "job-valid-1",
+      "source": "Job board",
+      "status": "applied",
+      "applied_at": "not-a-valid-date",
+      "fields": {
+        "candidate_id": "cand-valid-1",
+        "job_id": "job-valid-1",
+        "source": "Job board",
+        "status": "applied",
+        "applied_at": "not-a-valid-date"
+      }
+    },
+    {
+      "id": "app-dirty-bad-status",
+      "candidate_id": "cand-valid-1",
+      "job_id": "job-valid-1",
+      "source": "Job board",
+      "status": "in_limbo_phase",
+      "fields": {
+        "candidate_id": "cand-valid-1",
+        "job_id": "job-valid-1",
+        "source": "Job board",
+        "status": "in_limbo_phase"
+      }
+    },
+    {
+      "id": "app-dirty-contradiction",
+      "candidate_id": "cand-valid-1",
+      "job_id": "job-valid-1",
+      "source": "Job board",
+      "status": "hired",
+      "rejected": true,
+      "fields": {
+        "candidate_id": "cand-valid-1",
+        "job_id": "job-valid-1",
+        "source": "Job board",
+        "status": "hired",
+        "rejected": true
+      }
+    },
+    {
+      "id": "app-dirty-bad-source",
+      "candidate_id": "cand-valid-1",
+      "job_id": "job-valid-1",
+      "source": "Billboard on Highway 101",
+      "status": "applied",
+      "fields": {
+        "candidate_id": "cand-valid-1",
+        "job_id": "job-valid-1",
+        "source": "Billboard on Highway 101",
+        "status": "applied"
+      }
+    }
+  ],
+  "Interviews": [
+    {
+      "id": "int-valid-1",
+      "application_id": "app-valid-1",
+      "status": "completed",
+      "scheduled_at": "2025-01-15",
+      "completed_at": "2025-01-15",
+      "fields": {
+        "application_id": "app-valid-1",
+        "status": "completed",
+        "scheduled_at": "2025-01-15",
+        "completed_at": "2025-01-15"
+      }
+    },
+    {
+      "id": "int-dirty-missing-app",
+      "application_id": "",
+      "status": "scheduled",
+      "fields": {
+        "application_id": "",
+        "status": "scheduled"
+      }
+    },
+    {
+      "id": "int-dirty-orphan-app",
+      "application_id": "app-missing-404",
+      "status": "scheduled",
+      "fields": {
+        "application_id": "app-missing-404",
+        "status": "scheduled"
+      }
+    },
+    {
+      "id": "int-dirty-bad-date",
+      "application_id": "app-valid-1",
+      "status": "scheduled",
+      "scheduled_at": "2025/13/99",
+      "fields": {
+        "application_id": "app-valid-1",
+        "status": "scheduled",
+        "scheduled_at": "2025/13/99"
+      }
+    },
+    {
+      "id": "int-dirty-chrono",
+      "application_id": "app-valid-1",
+      "status": "completed",
+      "scheduled_at": "2025-02-20",
+      "completed_at": "2025-02-10",
+      "fields": {
+        "application_id": "app-valid-1",
+        "status": "completed",
+        "scheduled_at": "2025-02-20",
+        "completed_at": "2025-02-10"
+      }
+    }
+  ],
+  "Offers": [
+    {
+      "id": "off-valid-1",
+      "application_id": "app-valid-1",
+      "status": "accepted",
+      "offered_at": "2025-01-20",
+      "responded_at": "2025-01-22",
+      "fields": {
+        "application_id": "app-valid-1",
+        "status": "accepted",
+        "offered_at": "2025-01-20",
+        "responded_at": "2025-01-22"
+      }
+    },
+    {
+      "id": "off-dirty-missing-app",
+      "application_id": "",
+      "status": "pending",
+      "fields": {
+        "application_id": "",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "off-dirty-orphan-app",
+      "application_id": "app-missing-404",
+      "status": "pending",
+      "fields": {
+        "application_id": "app-missing-404",
+        "status": "pending"
+      }
+    },
+    {
+      "id": "off-dirty-bad-date",
+      "application_id": "app-valid-1",
+      "status": "pending",
+      "offered_at": "yesterday afternoon",
+      "fields": {
+        "application_id": "app-valid-1",
+        "status": "pending",
+        "offered_at": "yesterday afternoon"
+      }
+    },
+    {
+      "id": "off-dirty-chrono",
+      "application_id": "app-valid-1",
+      "status": "accepted",
+      "offered_at": "2025-03-15",
+      "responded_at": "2025-03-01",
+      "fields": {
+        "application_id": "app-valid-1",
+        "status": "accepted",
+        "offered_at": "2025-03-15",
+        "responded_at": "2025-03-01"
+      }
+    }
+  ],
+  "Findings": [
+    {
+      "id": "find-valid-1",
+      "title": "Dirty baseline initial findings",
+      "observed_fact": "Multiple planted anomalies across 7 categories.",
+      "confidence": "low",
+      "severity": "high",
+      "category": "data_quality",
+      "fields": {
+        "title": "Dirty baseline initial findings",
+        "observed_fact": "Multiple planted anomalies across 7 categories.",
+        "confidence": "low",
+        "severity": "high",
+        "category": "data_quality"
+      }
+    }
+  ]
+}

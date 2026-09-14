@@ -1,0 +1,643 @@
+{
+  "Departments": [
+    {
+      "id": "dep-eng",
+      "name": "Engineering",
+      "cost_center": "CC-101",
+      "fields": {
+        "name": "Engineering",
+        "cost_center": "CC-101"
+      }
+    },
+    {
+      "id": "dep-sales",
+      "name": "Sales",
+      "cost_center": "CC-102",
+      "fields": {
+        "name": "Sales",
+        "cost_center": "CC-102"
+      }
+    },
+    {
+      "id": "dep-prod",
+      "name": "Product",
+      "cost_center": "CC-103",
+      "fields": {
+        "name": "Product",
+        "cost_center": "CC-103"
+      }
+    }
+  ],
+  "People": [
+    {
+      "id": "per-001",
+      "name": "Alice Founder",
+      "email": "alice@startup.io",
+      "role": "Founder & CEO",
+      "department_id": "dep-eng",
+      "fields": {
+        "name": "Alice Founder",
+        "email": "alice@startup.io",
+        "role": "Founder & CEO",
+        "department_id": "dep-eng"
+      }
+    },
+    {
+      "id": "per-002",
+      "name": "Bob Recruiter",
+      "email": "bob@startup.io",
+      "role": "Talent Lead",
+      "department_id": "dep-sales",
+      "fields": {
+        "name": "Bob Recruiter",
+        "email": "bob@startup.io",
+        "role": "Talent Lead",
+        "department_id": "dep-sales"
+      }
+    },
+    {
+      "id": "per-003",
+      "name": "Charlie Eng",
+      "email": "charlie@startup.io",
+      "role": "Engineering Lead",
+      "department_id": "dep-eng",
+      "fields": {
+        "name": "Charlie Eng",
+        "email": "charlie@startup.io",
+        "role": "Engineering Lead",
+        "department_id": "dep-eng"
+      }
+    },
+    {
+      "id": "per-004",
+      "name": "Dana Sales",
+      "email": "dana@startup.io",
+      "role": "Sales Director",
+      "department_id": "dep-sales",
+      "fields": {
+        "name": "Dana Sales",
+        "email": "dana@startup.io",
+        "role": "Sales Director",
+        "department_id": "dep-sales"
+      }
+    }
+  ],
+  "Job Openings": [
+    {
+      "id": "job-platform",
+      "title": "Platform Engineer",
+      "department_id": "dep-eng",
+      "status": "open",
+      "opened_at": "2025-01-01",
+      "hiring_manager_id": "per-003",
+      "target_hires": 2,
+      "fields": {
+        "title": "Platform Engineer",
+        "department_id": "dep-eng",
+        "status": "open",
+        "opened_at": "2025-01-01",
+        "hiring_manager_id": "per-003",
+        "target_hires": 2
+      }
+    },
+    {
+      "id": "job-ae",
+      "title": "Account Executive",
+      "department_id": "dep-sales",
+      "status": "open",
+      "opened_at": "2025-01-05",
+      "hiring_manager_id": "per-004",
+      "target_hires": 2,
+      "fields": {
+        "title": "Account Executive",
+        "department_id": "dep-sales",
+        "status": "open",
+        "opened_at": "2025-01-05",
+        "hiring_manager_id": "per-004",
+        "target_hires": 2
+      }
+    },
+    {
+      "id": "job-pm",
+      "title": "Product Manager",
+      "department_id": "dep-prod",
+      "status": "open",
+      "opened_at": "2025-01-10",
+      "hiring_manager_id": "per-001",
+      "target_hires": 1,
+      "fields": {
+        "title": "Product Manager",
+        "department_id": "dep-prod",
+        "status": "open",
+        "opened_at": "2025-01-10",
+        "hiring_manager_id": "per-001",
+        "target_hires": 1
+      }
+    }
+  ],
+  "Candidates": [
+    {
+      "id": "cand-001",
+      "name": "Carol Candidate",
+      "email": "carol@example.com",
+      "person_id": "per-002",
+      "status": "hired",
+      "fields": {
+        "name": "Carol Candidate",
+        "email": "carol@example.com",
+        "person_id": "per-002",
+        "status": "hired"
+      }
+    },
+    {
+      "id": "cand-002",
+      "name": "Dave Developer",
+      "email": "dave@example.com",
+      "person_id": "per-002",
+      "status": "interview",
+      "fields": {
+        "name": "Dave Developer",
+        "email": "dave@example.com",
+        "person_id": "per-002",
+        "status": "interview"
+      }
+    },
+    {
+      "id": "cand-003",
+      "name": "Eve Engineer",
+      "email": "eve@example.com",
+      "person_id": "per-002",
+      "status": "screening",
+      "fields": {
+        "name": "Eve Engineer",
+        "email": "eve@example.com",
+        "person_id": "per-002",
+        "status": "screening"
+      }
+    },
+    {
+      "id": "cand-004",
+      "name": "Frank Sales",
+      "email": "frank@example.com",
+      "person_id": "per-002",
+      "status": "hired",
+      "fields": {
+        "name": "Frank Sales",
+        "email": "frank@example.com",
+        "person_id": "per-002",
+        "status": "hired"
+      }
+    },
+    {
+      "id": "cand-005",
+      "name": "Grace Rep",
+      "email": "grace@example.com",
+      "person_id": "per-002",
+      "status": "offer",
+      "fields": {
+        "name": "Grace Rep",
+        "email": "grace@example.com",
+        "person_id": "per-002",
+        "status": "offer"
+      }
+    },
+    {
+      "id": "cand-006",
+      "name": "Hank Closer",
+      "email": "hank@example.com",
+      "person_id": "per-002",
+      "status": "interview",
+      "fields": {
+        "name": "Hank Closer",
+        "email": "hank@example.com",
+        "person_id": "per-002",
+        "status": "interview"
+      }
+    },
+    {
+      "id": "cand-007",
+      "name": "Ivy Product",
+      "email": "ivy@example.com",
+      "person_id": "per-002",
+      "status": "hired",
+      "fields": {
+        "name": "Ivy Product",
+        "email": "ivy@example.com",
+        "person_id": "per-002",
+        "status": "hired"
+      }
+    },
+    {
+      "id": "cand-008",
+      "name": "Jack PM",
+      "email": "jack@example.com",
+      "person_id": "per-002",
+      "status": "offer",
+      "fields": {
+        "name": "Jack PM",
+        "email": "jack@example.com",
+        "person_id": "per-002",
+        "status": "offer"
+      }
+    }
+  ],
+  "Applications": [
+    {
+      "id": "app-001",
+      "candidate_id": "cand-001",
+      "job_id": "job-platform",
+      "source": "Referral",
+      "status": "hired",
+      "applied_at": "2025-01-02",
+      "updated_at": "2025-01-25",
+      "department": "Engineering",
+      "fields": {
+        "candidate_id": "cand-001",
+        "job_id": "job-platform",
+        "source": "Referral",
+        "status": "hired",
+        "applied_at": "2025-01-02",
+        "updated_at": "2025-01-25",
+        "department": "Engineering"
+      }
+    },
+    {
+      "id": "app-002",
+      "candidate_id": "cand-002",
+      "job_id": "job-platform",
+      "source": "Referral",
+      "status": "interview",
+      "applied_at": "2025-01-15",
+      "updated_at": "2025-01-28",
+      "department": "Engineering",
+      "fields": {
+        "candidate_id": "cand-002",
+        "job_id": "job-platform",
+        "source": "Referral",
+        "status": "interview",
+        "applied_at": "2025-01-15",
+        "updated_at": "2025-01-28",
+        "department": "Engineering"
+      }
+    },
+    {
+      "id": "app-003",
+      "candidate_id": "cand-003",
+      "job_id": "job-platform",
+      "source": "Job board",
+      "status": "screening",
+      "applied_at": "2025-01-05",
+      "updated_at": "2025-01-10",
+      "department": "Engineering",
+      "fields": {
+        "candidate_id": "cand-003",
+        "job_id": "job-platform",
+        "source": "Job board",
+        "status": "screening",
+        "applied_at": "2025-01-05",
+        "updated_at": "2025-01-10",
+        "department": "Engineering"
+      }
+    },
+    {
+      "id": "app-004",
+      "candidate_id": "cand-004",
+      "job_id": "job-ae",
+      "source": "Careers page",
+      "status": "hired",
+      "applied_at": "2025-01-03",
+      "updated_at": "2025-01-26",
+      "department": "Sales",
+      "fields": {
+        "candidate_id": "cand-004",
+        "job_id": "job-ae",
+        "source": "Careers page",
+        "status": "hired",
+        "applied_at": "2025-01-03",
+        "updated_at": "2025-01-26",
+        "department": "Sales"
+      }
+    },
+    {
+      "id": "app-005",
+      "candidate_id": "cand-005",
+      "job_id": "job-ae",
+      "source": "Job board",
+      "status": "offer",
+      "applied_at": "2025-01-08",
+      "updated_at": "2025-01-22",
+      "department": "Sales",
+      "fields": {
+        "candidate_id": "cand-005",
+        "job_id": "job-ae",
+        "source": "Job board",
+        "status": "offer",
+        "applied_at": "2025-01-08",
+        "updated_at": "2025-01-22",
+        "department": "Sales"
+      }
+    },
+    {
+      "id": "app-006",
+      "candidate_id": "cand-006",
+      "job_id": "job-ae",
+      "source": "Careers page",
+      "status": "interview",
+      "applied_at": "2025-01-14",
+      "updated_at": "2025-01-27",
+      "department": "Sales",
+      "fields": {
+        "candidate_id": "cand-006",
+        "job_id": "job-ae",
+        "source": "Careers page",
+        "status": "interview",
+        "applied_at": "2025-01-14",
+        "updated_at": "2025-01-27",
+        "department": "Sales"
+      }
+    },
+    {
+      "id": "app-007",
+      "candidate_id": "cand-007",
+      "job_id": "job-pm",
+      "source": "Referral",
+      "status": "hired",
+      "applied_at": "2025-01-04",
+      "updated_at": "2025-01-24",
+      "department": "Product",
+      "fields": {
+        "candidate_id": "cand-007",
+        "job_id": "job-pm",
+        "source": "Referral",
+        "status": "hired",
+        "applied_at": "2025-01-04",
+        "updated_at": "2025-01-24",
+        "department": "Product"
+      }
+    },
+    {
+      "id": "app-008",
+      "candidate_id": "cand-008",
+      "job_id": "job-pm",
+      "source": "Referral",
+      "status": "offer",
+      "applied_at": "2025-01-10",
+      "updated_at": "2025-01-25",
+      "department": "Product",
+      "fields": {
+        "candidate_id": "cand-008",
+        "job_id": "job-pm",
+        "source": "Referral",
+        "status": "offer",
+        "applied_at": "2025-01-10",
+        "updated_at": "2025-01-25",
+        "department": "Product"
+      }
+    },
+    {
+      "id": "app-009",
+      "candidate_id": "cand-005",
+      "job_id": "job-platform",
+      "source": "Agency",
+      "status": "rejected",
+      "applied_at": "2025-01-02",
+      "updated_at": "2025-01-06",
+      "department": "Engineering",
+      "fields": {
+        "candidate_id": "cand-005",
+        "job_id": "job-platform",
+        "source": "Agency",
+        "status": "rejected",
+        "applied_at": "2025-01-02",
+        "updated_at": "2025-01-06",
+        "department": "Engineering"
+      }
+    },
+    {
+      "id": "app-010",
+      "candidate_id": "cand-006",
+      "job_id": "job-platform",
+      "source": "Job board",
+      "status": "rejected",
+      "applied_at": "2025-01-04",
+      "updated_at": "2025-01-07",
+      "department": "Engineering",
+      "fields": {
+        "candidate_id": "cand-006",
+        "job_id": "job-platform",
+        "source": "Job board",
+        "status": "rejected",
+        "applied_at": "2025-01-04",
+        "updated_at": "2025-01-07",
+        "department": "Engineering"
+      }
+    }
+  ],
+  "Interviews": [
+    {
+      "id": "int-001",
+      "application_id": "app-001",
+      "interviewer_id": "per-003",
+      "stage": "technical",
+      "scheduled_at": "2025-01-10",
+      "completed_at": "2025-01-10",
+      "status": "completed",
+      "score": 4,
+      "fields": {
+        "application_id": "app-001",
+        "interviewer_id": "per-003",
+        "stage": "technical",
+        "scheduled_at": "2025-01-10",
+        "completed_at": "2025-01-10",
+        "status": "completed",
+        "score": 4
+      }
+    },
+    {
+      "id": "int-002",
+      "application_id": "app-002",
+      "interviewer_id": "per-003",
+      "stage": "technical",
+      "scheduled_at": "2025-01-20",
+      "completed_at": "2025-01-20",
+      "status": "completed",
+      "score": 3,
+      "fields": {
+        "application_id": "app-002",
+        "interviewer_id": "per-003",
+        "stage": "technical",
+        "scheduled_at": "2025-01-20",
+        "completed_at": "2025-01-20",
+        "status": "completed",
+        "score": 3
+      }
+    },
+    {
+      "id": "int-003",
+      "application_id": "app-004",
+      "interviewer_id": "per-004",
+      "stage": "sales_pitch",
+      "scheduled_at": "2025-01-12",
+      "completed_at": "2025-01-12",
+      "status": "completed",
+      "score": 5,
+      "fields": {
+        "application_id": "app-004",
+        "interviewer_id": "per-004",
+        "stage": "sales_pitch",
+        "scheduled_at": "2025-01-12",
+        "completed_at": "2025-01-12",
+        "status": "completed",
+        "score": 5
+      }
+    },
+    {
+      "id": "int-004",
+      "application_id": "app-005",
+      "interviewer_id": "per-004",
+      "stage": "sales_pitch",
+      "scheduled_at": "2025-01-16",
+      "completed_at": "2025-01-16",
+      "status": "completed",
+      "score": 4,
+      "fields": {
+        "application_id": "app-005",
+        "interviewer_id": "per-004",
+        "stage": "sales_pitch",
+        "scheduled_at": "2025-01-16",
+        "completed_at": "2025-01-16",
+        "status": "completed",
+        "score": 4
+      }
+    },
+    {
+      "id": "int-005",
+      "application_id": "app-006",
+      "interviewer_id": "per-004",
+      "stage": "sales_pitch",
+      "scheduled_at": "2025-01-28",
+      "completed_at": null,
+      "status": "scheduled",
+      "score": null,
+      "fields": {
+        "application_id": "app-006",
+        "interviewer_id": "per-004",
+        "stage": "sales_pitch",
+        "scheduled_at": "2025-01-28",
+        "completed_at": null,
+        "status": "scheduled",
+        "score": null
+      }
+    },
+    {
+      "id": "int-006",
+      "application_id": "app-007",
+      "interviewer_id": "per-001",
+      "stage": "founder_interview",
+      "scheduled_at": "2025-01-12",
+      "completed_at": "2025-01-12",
+      "status": "completed",
+      "score": 5,
+      "fields": {
+        "application_id": "app-007",
+        "interviewer_id": "per-001",
+        "stage": "founder_interview",
+        "scheduled_at": "2025-01-12",
+        "completed_at": "2025-01-12",
+        "status": "completed",
+        "score": 5
+      }
+    }
+  ],
+  "Offers": [
+    {
+      "id": "off-001",
+      "application_id": "app-001",
+      "candidate_id": "cand-001",
+      "status": "accepted",
+      "offered_at": "2025-01-18",
+      "responded_at": "2025-01-20",
+      "salary": 165000,
+      "is_accepted": true,
+      "fields": {
+        "application_id": "app-001",
+        "candidate_id": "cand-001",
+        "status": "accepted",
+        "offered_at": "2025-01-18",
+        "responded_at": "2025-01-20",
+        "salary": 165000,
+        "is_accepted": true
+      }
+    },
+    {
+      "id": "off-002",
+      "application_id": "app-005",
+      "candidate_id": "cand-005",
+      "status": "declined",
+      "offered_at": "2025-01-20",
+      "responded_at": "2025-01-22",
+      "salary": 140000,
+      "is_accepted": false,
+      "fields": {
+        "application_id": "app-005",
+        "candidate_id": "cand-005",
+        "status": "declined",
+        "offered_at": "2025-01-20",
+        "responded_at": "2025-01-22",
+        "salary": 140000,
+        "is_accepted": false
+      }
+    },
+    {
+      "id": "off-003",
+      "application_id": "app-007",
+      "candidate_id": "cand-007",
+      "status": "accepted",
+      "offered_at": "2025-01-18",
+      "responded_at": "2025-01-21",
+      "salary": 155000,
+      "is_accepted": true,
+      "fields": {
+        "application_id": "app-007",
+        "candidate_id": "cand-007",
+        "status": "accepted",
+        "offered_at": "2025-01-18",
+        "responded_at": "2025-01-21",
+        "salary": 155000,
+        "is_accepted": true
+      }
+    }
+  ],
+  "Findings": [
+    {
+      "id": "find-001",
+      "title": "Referral is top hiring channel",
+      "observed_fact": "Referral yielded 2 hires from 4 applications (50% conversion).",
+      "confidence": "high",
+      "severity": "low",
+      "category": "source_effectiveness",
+      "fields": {
+        "title": "Referral is top hiring channel",
+        "observed_fact": "Referral yielded 2 hires from 4 applications (50% conversion).",
+        "confidence": "high",
+        "severity": "low",
+        "category": "source_effectiveness"
+      }
+    },
+    {
+      "id": "find-002",
+      "title": "Offer acceptance rate healthy",
+      "observed_fact": "2 of 3 offers accepted (67%).",
+      "confidence": "high",
+      "severity": "low",
+      "category": "offer_acceptance",
+      "fields": {
+        "title": "Offer acceptance rate healthy",
+        "observed_fact": "2 of 3 offers accepted (67%).",
+        "confidence": "high",
+        "severity": "low",
+        "category": "offer_acceptance"
+      }
+    }
+  ]
+}

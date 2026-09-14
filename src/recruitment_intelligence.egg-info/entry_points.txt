@@ -1,0 +1,2 @@
+[console_scripts]
+recruitment-intelligence = recruitment_intelligence.pipeline:main

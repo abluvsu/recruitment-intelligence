@@ -1,0 +1,30 @@
+{
+  "Departments": [
+    {"id": "dep-eng", "name": "Engineering"},
+    {"id": "dep-sales", "name": "Sales"}
+  ],
+  "Job Openings": [
+    {"id": "job-platform", "title": "Platform Engineer", "department_id": "dep-eng", "status": "open"},
+    {"id": "job-ae", "title": "Account Executive", "department_id": "dep-sales", "status": "open"}
+  ],
+  "Candidates": [
+    {"id": "cand-001", "name": "Candidate 001", "status": "hired"},
+    {"id": "cand-002", "name": "Candidate 002", "status": "active"},
+    {"id": "cand-003", "name": "Candidate 003", "status": "rejected"},
+    {"id": "cand-004", "name": "Candidate 004", "status": "active"}
+  ],
+  "Applications": [
+    {"id": "app-001", "candidate_id": "cand-001", "job_id": "job-platform", "source": "Referral", "status": "hired", "applied_at": "2025-01-02", "updated_at": "2025-01-28"},
+    {"id": "app-002", "candidate_id": "cand-002", "job_id": "job-platform", "source": "Job board", "status": "interview", "applied_at": "2025-01-12", "updated_at": "2025-01-20"},
+    {"id": "app-003", "candidate_id": "cand-003", "job_id": "job-ae", "source": "Job board", "status": "rejected", "applied_at": "2025-01-08", "updated_at": "2025-01-15"},
+    {"id": "app-004", "candidate_id": "cand-004", "job_id": "job-ae", "source": "Careers page", "status": "screening", "applied_at": "2025-01-25", "updated_at": "2025-01-26"}
+  ],
+  "Interviews": [
+    {"id": "int-001", "application_id": "app-001", "scheduled_at": "2025-01-18", "status": "completed"},
+    {"id": "int-002", "application_id": "app-002", "scheduled_at": "2025-01-30", "status": "scheduled"}
+  ],
+  "Offers": [
+    {"id": "offer-001", "application_id": "app-001", "candidate_id": "cand-001", "status": "accepted", "offered_at": "2025-01-22", "accepted_at": "2025-01-24"},
+    {"id": "offer-002", "application_id": "app-003", "candidate_id": "cand-003", "status": "declined", "offered_at": "2025-01-16"}
+  ]
+}
