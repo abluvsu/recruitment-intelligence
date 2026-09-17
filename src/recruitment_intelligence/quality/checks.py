@@ -8,7 +8,7 @@ reported; they are never silently normalised into a known category.
 
 from __future__ import annotations
 
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import date, datetime, timezone
 from typing import Any, Iterable, Mapping, Sequence
 
@@ -100,6 +100,17 @@ def _issue(
     }
 
 
+_FIELD_ALIASES: dict[str, tuple[str, ...]] = {
+    "candidate_id": ("candidate_id", "candidate", "candidate_link"),
+    "application_id": ("application_id", "application", "app_id", "application_link"),
+    "job_id": ("job_id", "opening", "job_opening", "opening_id", "requisition_id"),
+    "department_id": ("department_id", "department"),
+    "person_id": ("person_id", "person"),
+    "title": ("title", "job_title", "role"),
+    "name": ("name", "department_name", "full_name", "title"),
+    "id": ("id", "record_id"),
+}
+
 _REQUIRED_FIELDS: dict[str, tuple[str, ...]] = {
     "Departments": ("id", "name"),
     "People": ("id",),
@@ -131,7 +142,7 @@ def missing_values(tables: Tables, required_fields: Mapping[str, Sequence[str]] 
     for table, fields in required_fields.items():
         rows = _table(tables, table)
         for field in fields:
-            aliases = (field, "record_id") if field == "id" else (field,)
+            aliases = _FIELD_ALIASES.get(field, (field, "record_id") if field == "id" else (field,))
             affected = [_record_id(row, table, i) for i, row in enumerate(rows) if _empty(_value(row, *aliases))]
             if affected:
                 issues.append(_issue("missing_value", table, field, "high", affected, _metrics(field, "table_counts"), "high", f"{len(affected)} record(s) are missing required field '{field}'."))
@@ -168,11 +179,18 @@ def orphan_links(tables: Tables) -> list[dict[str, Any]]:
     for table, links in _LINKS.items():
         rows = _table(tables, table)
         for field, target in links:
-            target_ids = {_record_id(row, target, i) for i, row in enumerate(_table(tables, target))}
+            target_ids = set()
+            for i, row in enumerate(_table(tables, target)):
+                target_ids.add(_record_id(row, target, i))
+                for k in ("id", "record_id", f"{_key(target).rstrip('s')}_id", "candidate_id", "application_id", "job_id", "department_id", "person_id", "req_id", "code"):
+                    v = _text(_value(row, k))
+                    if v:
+                        target_ids.add(v)
             affected: list[str] = []
             dangling: list[str] = []
+            aliases = _FIELD_ALIASES.get(field, (field,))
             for i, row in enumerate(rows):
-                linked = _text(_value(row, field))
+                linked = _text(_value(row, *aliases))
                 if linked and linked not in target_ids:
                     affected.append(_record_id(row, table, i)); dangling.append(linked)
             if affected:
@@ -282,11 +300,11 @@ def chronology_errors(tables: Tables) -> list[dict[str, Any]]:
 
 
 _STATUS_VALUES = {
-    "Applications": {"applied", "application", "screen", "screening", "interview", "interviewing", "offer", "offer_made", "accepted", "hired", "rejected", "withdrawn", "closed", "offer_accepted", "offer_rejected"},
+    "Applications": {"applied", "application", "screen", "screening", "interview", "interviewing", "offer", "offer_made", "accepted", "hired", "rejected", "withdrawn", "closed", "offer_accepted", "offer_rejected", "active"},
     "Candidates": {"new", "active", "screening", "interview", "offer", "hired", "rejected", "withdrawn", "archived", "joined"},
     "Interviews": {"scheduled", "completed", "cancelled", "canceled", "no_show", "passed", "failed", "pending"},
     "Offers": {"draft", "pending", "sent", "accepted", "rejected", "declined", "expired", "withdrawn", "hired", "joined"},
-    "Job Openings": {"draft", "open", "active", "paused", "closed", "filled", "cancelled", "canceled"},
+    "Job Openings": {"draft", "open", "active", "paused", "closed", "filled", "cancelled", "canceled", "on_hold", "on hold"},
 }
 
 
@@ -364,3 +382,152 @@ find_quality_issues = run_quality_checks
 assess_data_quality = run_quality_checks
 data_quality_report = run_quality_checks
 data_quality_confidence = quality_confidence
+
+
+def duplicate_candidates(tables: Tables) -> list[dict[str, Any]]:
+    """Detect duplicate candidate pairs sharing identical phone and name."""
+    cands = _table(tables, "Candidates")
+    groups: dict[tuple[str, str], list[str]] = defaultdict(list)
+    for i, c in enumerate(cands):
+        name = _text(_value(c, "full_name", "name"))
+        phone = _text(_value(c, "phone", "phone_number"))
+        if name and phone:
+            cid = _text(_value(c, "candidate_id", "id")) or f"Candidates[{i}]"
+            groups[(name, phone)].append(cid)
+    issues = []
+    for (name, phone), ids in sorted(groups.items()):
+        if len(ids) > 1:
+            issues.append(_issue(
+                "duplicate_candidate_profile",
+                "Candidates",
+                "phone",
+                "high",
+                ids,
+                ("candidate_counts", "source_effectiveness"),
+                "high",
+                f"Candidate '{name}' ({phone}) has {len(ids)} duplicate profiles: {', '.join(ids)}."
+            ))
+    return issues
+
+
+def duplicate_applications(tables: Tables) -> list[dict[str, Any]]:
+    """Detect candidates reapplying to identical openings."""
+    apps = _table(tables, "Applications")
+    groups: dict[tuple[str, str], list[str]] = defaultdict(list)
+    for i, a in enumerate(apps):
+        cid = _text(_value(a, "candidate_id", "candidate"))
+        oid = _text(_value(a, "opening", "opening_id", "job_id", "job_opening"))
+        aid = _text(_value(a, "application_id", "id")) or f"Applications[{i}]"
+        if cid and oid:
+            groups[(cid, oid)].append(aid)
+    issues = []
+    for (cid, oid), ids in sorted(groups.items()):
+        if len(ids) > 1:
+            issues.append(_issue(
+                "duplicate_application_opening",
+                "Applications",
+                "opening",
+                "high",
+                ids,
+                ("funnel_transitions", "application_counts"),
+                "high",
+                f"Candidate '{cid}' applied {len(ids)} times to opening '{oid}': {', '.join(ids)}."
+            ))
+    return issues
+
+
+def salary_band_violations(tables: Tables) -> list[dict[str, Any]]:
+    """Detect extended offers whose compensation violates requisition salary bands."""
+    offers = _table(tables, "Offers")
+    apps = {_record_id(a, "Applications", i): a for i, a in enumerate(_table(tables, "Applications"))}
+    for i, a in enumerate(_table(tables, "Applications")):
+        aid = _text(_value(a, "id", "record_id", "application_id"))
+        if aid:
+            apps[aid] = a
+    openings = {_record_id(o, "Job Openings", i): o for i, o in enumerate(_table(tables, "Job Openings"))}
+    for i, o in enumerate(_table(tables, "Job Openings")):
+        oid = _text(_value(o, "id", "record_id", "req_id"))
+        if oid:
+            openings[oid] = o
+
+    issues = []
+    for i, off in enumerate(offers):
+        base = _value(off, "base_ctc", "base_salary", "salary")
+        if base is None:
+            continue
+        try:
+            base_val = float(base)
+        except (ValueError, TypeError):
+            continue
+        app_ref = _text(_value(off, "application", "application_id", "app_id"))
+        app = apps.get(app_ref, {})
+        op_ref = _text(_value(app, "opening", "opening_id", "job_id"))
+        op = openings.get(op_ref, {})
+        b_min = _value(op, "salary_band_min", "band_min", "min_salary")
+        b_max = _value(op, "salary_band_max", "band_max", "max_salary")
+        off_id = _record_id(off, "Offers", i)
+
+        if b_max is not None:
+            try:
+                b_max_val = float(b_max)
+                if base_val > b_max_val:
+                    pct = (base_val - b_max_val) / b_max_val * 100
+                    issues.append(_issue(
+                        "salary_band_overrun",
+                        "Offers",
+                        "base_ctc",
+                        "high",
+                        [off_id],
+                        ("offer_acceptance_rate", "compensation_competitiveness"),
+                        "high",
+                        f"Offer '{off_id}' base CTC {base_val:,.0f} exceeds band maximum {b_max_val:,.0f} (+{pct:.1f}%)."
+                    ))
+            except (ValueError, TypeError):
+                pass
+        if b_min is not None:
+            try:
+                b_min_val = float(b_min)
+                if base_val < b_min_val:
+                    pct = (base_val - b_min_val) / b_min_val * 100
+                    issues.append(_issue(
+                        "salary_band_underrun",
+                        "Offers",
+                        "base_ctc",
+                        "medium",
+                        [off_id],
+                        ("offer_acceptance_rate", "compensation_competitiveness"),
+                        "high",
+                        f"Offer '{off_id}' base CTC {base_val:,.0f} is below band minimum {b_min_val:,.0f} ({pct:.1f}%)."
+                    ))
+            except (ValueError, TypeError):
+                pass
+    return sorted(issues, key=lambda x: x["affected_records"][0] if x["affected_records"] else "")
+
+
+def stale_pending_offers(tables: Tables, as_of: date | datetime | str | None = None) -> list[dict[str, Any]]:
+    """Detect pending offers that exceed typical response windows."""
+    ref_date = _parse_date(as_of) or date(2026, 9, 2)
+    ref = ref_date.date() if isinstance(ref_date, datetime) else ref_date
+    offers = _table(tables, "Offers")
+    issues = []
+    for i, off in enumerate(offers):
+        st = _key(_value(off, "status"))
+        if st == "pending":
+            off_date = _parse_date(_value(off, "offered_on", "offered_at"))
+            if off_date:
+                d = off_date.date() if isinstance(off_date, datetime) else off_date
+                age = (ref - d).days
+                off_id = _record_id(off, "Offers", i)
+                if age >= 30:
+                    issues.append(_issue(
+                        "stale_pending_offer",
+                        "Offers",
+                        "status",
+                        "high",
+                        [off_id],
+                        ("offer_acceptance_rate", "pipeline_velocity"),
+                        "high",
+                        f"Offer '{off_id}' has been pending for {age} days (exceeds 30 days threshold)."
+                    ))
+    return sorted(issues, key=lambda x: x["affected_records"][0] if x["affected_records"] else "")
+

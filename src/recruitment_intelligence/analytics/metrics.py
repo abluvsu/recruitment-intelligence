@@ -166,6 +166,9 @@ def _interview_ids(tables: Tables) -> set[str]:
 
 
 def _is_hired(app: Record, candidate: Record | None = None) -> bool:
+    stage = _text(_value(app, "stage")).lower().replace(" ", "_")
+    if stage in {"hired", "joined", "start", "started", "offer_accepted"}:
+        return True
     app_st = _status(app)
     terminal_non_hire = {
         "rejected", "withdrawn", "closed", "declined", "archived",
@@ -193,12 +196,43 @@ def _is_interview(app: Record, interview_ids: set[str]) -> bool:
 def source_effectiveness(tables: Tables | Sequence[Record]) -> dict[str, dict[str, Any]]:
     """Calculate source funnel performance, conversion, effort touches, yield, and sinks."""
     apps = _rows(tables)
-    candidates = _index(tables, "Candidates") if isinstance(tables, Mapping) else {}
+    candidates: dict[str, Record] = {}
+    if isinstance(tables, Mapping):
+        for c in _rows(tables, "Candidates"):
+            rid = _text(_value(c, "id", "record_id"))
+            cid = _text(_value(c, "candidate_id"))
+            if rid:
+                candidates[rid] = c
+            if cid:
+                candidates[cid] = c
     offers = _offer_index(tables) if isinstance(tables, Mapping) else {}
     interview_ids = _interview_ids(tables) if isinstance(tables, Mapping) else set()
+
+    app_interviews: dict[str, list[Record]] = defaultdict(list)
+    if isinstance(tables, Mapping):
+        for iv in _rows(tables, "Interviews"):
+            aid = _text(_value(iv, "application_id", "application", "app_id"))
+            if aid:
+                app_interviews[aid].append(iv)
+
+    app_offers_map: dict[str, list[Record]] = defaultdict(list)
+    if isinstance(tables, Mapping):
+        for off in _rows(tables, "Offers"):
+            aid = _text(_value(off, "application_id", "application", "app_id"))
+            cid = _text(_value(off, "candidate_id", "candidate"))
+            if aid:
+                app_offers_map[aid].append(off)
+            elif cid:
+                app_offers_map[f"candidate:{cid}"].append(off)
+
     grouped: dict[str, list[Record]] = defaultdict(list)
     for app in apps:
-        grouped[_text(_value(app, "source", "recruiting_source", "channel"), "Unknown") or "Unknown"].append(app)
+        source = _text(_value(app, "source", "recruiting_source", "channel"))
+        if not source or source.lower() == "unknown":
+            cid = _linked_id(_value(app, "candidate_id", "candidate"))
+            cand = candidates.get(cid)
+            source = _text(_value(cand, "source", "recruiting_source", "channel")) if cand else "Unknown"
+        grouped[source or "Unknown"].append(app)
     output: dict[str, dict[str, Any]] = {}
     for source in sorted(grouped):
         rows = grouped[source]
@@ -207,10 +241,14 @@ def source_effectiveness(tables: Tables | Sequence[Record]) -> dict[str, dict[st
         for app in rows:
             appid = _id(app)
             cid = _linked_id(_value(app, "candidate_id", "candidate"))
-            app_offers = offers.get(appid, []) or (offers.get(f"candidate:{cid}", []) if cid else [])
-            if _is_interview(app, interview_ids):
+            app_offers = app_offers_map.get(appid, []) or (app_offers_map.get(f"candidate:{cid}", []) if cid else []) or offers.get(appid, []) or (offers.get(f"candidate:{cid}", []) if cid else [])
+            if appid in app_interviews:
+                interviews += len(app_interviews[appid])
+            elif _is_interview(app, interview_ids):
                 interviews += 1
-            if _is_offer(app, app_offers):
+            if app_offers:
+                offers_count += len(app_offers)
+            elif _is_offer(app, []):
                 offers_count += 1
             if _is_hired(app):
                 hires += 1
@@ -219,7 +257,7 @@ def source_effectiveness(tables: Tables | Sequence[Record]) -> dict[str, dict[st
         n = len(rows)
         effort_touches = interviews + offers_count
         effort_yield = hires / effort_touches if effort_touches else 0.0
-        effort_per_hire = effort_touches / hires if hires else None
+        effort_per_hire = (interviews / hires) if hires else None
         is_sink = hires == 0 and (n >= 2 or interviews >= 1)
         output[source] = {
             "applications": n,
@@ -234,6 +272,7 @@ def source_effectiveness(tables: Tables | Sequence[Record]) -> dict[str, dict[st
             "effort_touches": effort_touches,
             "effort_yield": effort_yield,
             "effort_per_hire": effort_per_hire,
+            "interviews_per_hire": effort_per_hire,
             "is_effort_sink": is_sink,
         }
     return output
@@ -405,7 +444,7 @@ def stalled_applications(tables: Tables | Sequence[Record], threshold_days: int 
     for app in _rows(tables):
         if _status(app) in terminal:
             continue
-        updated = _date(_value(app, "updated_at", "last_activity", "last_updated", "applied_at", "application_date", "created_at"))
+        updated = _date(_value(app, "updated_at", "last_activity", "last_updated", "applied_at", "applied_on", "application_date", "created_at"))
         if updated is None:
             continue
         age = (today - updated).days
@@ -419,7 +458,7 @@ def aging(tables: Tables | Sequence[Record], as_of: date | datetime | str | None
     today = _as_of(as_of)
     result = []
     for app in _rows(tables):
-        applied = _date(_value(app, "applied_at", "application_date", "created_at", "date_applied"))
+        applied = _date(_value(app, "applied_at", "application_date", "created_at", "date_applied", "applied_on"))
         if applied is None:
             continue
         result.append({"application_id": _id(app), "candidate_id": _linked_id(_value(app, "candidate_id", "candidate")), "age_days": max(0, (today - applied).days), "status": _status(app) or "unknown"})
@@ -429,10 +468,35 @@ def aging(tables: Tables | Sequence[Record], as_of: date | datetime | str | None
 def source_department_segmentation(tables: Tables) -> dict[str, dict[str, dict[str, Any]]]:
     """Return source metrics split by department/role."""
     apps = _rows(tables)
+    candidates: dict[str, Record] = {}
+    if isinstance(tables, Mapping):
+        for c in _rows(tables, "Candidates"):
+            rid = _text(_value(c, "id", "record_id"))
+            cid = _text(_value(c, "candidate_id"))
+            if rid:
+                candidates[rid] = c
+            if cid:
+                candidates[cid] = c
+    openings: dict[str, Record] = {}
+    if isinstance(tables, Mapping):
+        for o in _rows(tables, "Job Openings"):
+            oid = _text(_value(o, "id", "record_id", "req_id"))
+            if oid:
+                openings[oid] = o
     segments: dict[str, dict[str, list[Record]]] = defaultdict(lambda: defaultdict(list))
     for app in apps:
-        source = _text(_value(app, "source", "recruiting_source", "channel"), "Unknown") or "Unknown"
-        dept = _text(_value(app, "department", "role", "job_title", "job"), "Unknown") or "Unknown"
+        source = _text(_value(app, "source", "recruiting_source", "channel"))
+        if not source or source.lower() == "unknown":
+            cid = _linked_id(_value(app, "candidate_id", "candidate"))
+            cand = candidates.get(cid)
+            source = _text(_value(cand, "source", "recruiting_source", "channel")) if cand else "Unknown"
+        source = source or "Unknown"
+        dept = _text(_value(app, "department", "role", "job_title", "job"))
+        if not dept or dept == "Unknown":
+            op_id = _linked_id(_value(app, "opening", "opening_id", "job_id"))
+            op = openings.get(op_id)
+            dept = _text(_value(op, "department", "title", "role"), "Unknown") if op else "Unknown"
+        dept = dept or "Unknown"
         segments[source][dept].append(app)
     return {source: {dept: source_effectiveness(rows).get(source, source_effectiveness(rows).get("Unknown", {})) for dept, rows in sorted(depts.items())} for source, depts in sorted(segments.items())}
 
@@ -446,4 +510,315 @@ def sensitivity_analysis(tables: Tables, exclusions: Mapping[str, Iterable[str]]
         filtered = {table: [row for row in rows if _id(row) not in excluded] for table, rows in tables.items()}
         scenarios[str(name)] = source_effectiveness(filtered)
     return {"baseline": baseline, "scenarios": scenarios}
+
+
+def recruiter_interviewer_bandwidth(tables: Tables) -> dict[str, Any]:
+    """Analyze hiring workload and velocity across internal recruiters and interviewers."""
+    people: dict[str, str] = {}
+    for p in _rows(tables, "People"):
+        pid = _text(_value(p, "id", "record_id"))
+        p_cid = _text(_value(p, "person_id"))
+        name = _text(_value(p, "full_name", "name"))
+        if pid:
+            people[pid] = name
+        if p_cid:
+            people[p_cid] = name
+
+    # Recruiter load from Applications
+    recruiter_apps: Counter[str] = Counter()
+    for app in _rows(tables, "Applications"):
+        for r in _value(app, "recruiter", "recruiter_id", default=[]) or []:
+            r_str = _text(r)
+            r_name = people.get(r_str, r_str)
+            if r_name:
+                recruiter_apps[r_name] += 1
+
+    # Interviewer load and scores from Interviews
+    interviewer_counts: Counter[str] = Counter()
+    interviewer_scores: dict[str, list[float]] = defaultdict(list)
+    interviews = _rows(tables, "Interviews")
+    for iv in interviews:
+        score_val = _value(iv, "score", "rating")
+        for i in _value(iv, "interviewer", "interviewer_id", default=[]) or []:
+            i_str = _text(i)
+            i_name = people.get(i_str, i_str)
+            if i_name:
+                interviewer_counts[i_name] += 1
+                if score_val is not None:
+                    try:
+                        interviewer_scores[i_name].append(float(score_val))
+                    except (ValueError, TypeError):
+                        pass
+
+    interviewer_avg_scores = {
+        name: round(sum(scores) / len(scores), 2)
+        for name, scores in interviewer_scores.items()
+        if scores
+    }
+
+    total_interviews = len(interviews)
+    sorted_interviewers = sorted(interviewer_counts.items(), key=lambda x: (-x[1], x[0]))
+    top_two = sum(cnt for _, cnt in sorted_interviewers[:2])
+    top_two_share = (top_two / total_interviews) if total_interviews else 0.0
+
+    strictest = min(interviewer_avg_scores.items(), key=lambda x: (x[1], x[0]))[0] if interviewer_avg_scores else ""
+
+    return {
+        "recruiter_load": dict(sorted(recruiter_apps.items(), key=lambda x: (-x[1], x[0]))),
+        "interviewer_load": dict(sorted_interviewers),
+        "interviewer_avg_scores": dict(sorted(interviewer_avg_scores.items(), key=lambda x: (x[1], x[0]))),
+        "top_two_interviewer_share": top_two_share,
+        "strictest_interviewer": strictest,
+        "total_interviews": total_interviews,
+    }
+
+
+def compensation_competitiveness(tables: Tables, as_of: date | datetime | str | None = None) -> dict[str, Any]:
+    """Contrast offered compensation against candidate expectations and salary bands."""
+    today = _as_of(as_of)
+    offers = _rows(tables, "Offers")
+    apps = {_id(a): a for a in _rows(tables, "Applications")}
+    openings = {_id(o): o for o in _rows(tables, "Job Openings")}
+    candidates: dict[str, Record] = {}
+    for c in _rows(tables, "Candidates"):
+        rid = _text(_value(c, "id", "record_id"))
+        cid = _text(_value(c, "candidate_id"))
+        if rid:
+            candidates[rid] = c
+        if cid:
+            candidates[cid] = c
+
+    violations: list[dict[str, Any]] = []
+    stale_pending: list[dict[str, Any]] = []
+    decline_reasons: Counter[str] = Counter()
+
+    for off in offers:
+        off_id = _id(off)
+        status = _text(_value(off, "status")).lower()
+        base = _value(off, "base_ctc", "salary", "base_salary")
+        try:
+            base_val = float(base) if base is not None else None
+        except (ValueError, TypeError):
+            base_val = None
+
+        app_ref = _text(_value(off, "application_id", "application", "app_id"))
+        app = apps.get(app_ref, {})
+        op_ref = _text(_value(app, "opening", "opening_id", "job_id", "job_opening"))
+        op = openings.get(op_ref, {})
+        cand_ref = _linked_id(_value(app, "candidate_id", "candidate")) or _linked_id(_value(off, "candidate_id", "candidate"))
+        cand = candidates.get(cand_ref, {})
+
+        b_min = _value(op, "salary_band_min", "band_min", "min_salary")
+        b_max = _value(op, "salary_band_max", "band_max", "max_salary")
+
+        cand_name = _text(_value(cand, "full_name", "name"))
+        role_title = _text(_value(op, "title", "role"))
+
+        if base_val is not None and b_max is not None:
+            try:
+                b_max_val = float(b_max)
+                if base_val > b_max_val:
+                    pct = (base_val - b_max_val) / b_max_val * 100
+                    violations.append({
+                        "offer_id": off_id,
+                        "candidate_name": cand_name,
+                        "role": role_title,
+                        "base_offered": base_val,
+                        "band_max": b_max_val,
+                        "deviation_pct": pct,
+                        "type": "over_max",
+                    })
+            except (ValueError, TypeError):
+                pass
+
+        if base_val is not None and b_min is not None:
+            try:
+                b_min_val = float(b_min)
+                if base_val < b_min_val:
+                    pct = (base_val - b_min_val) / b_min_val * 100
+                    violations.append({
+                        "offer_id": off_id,
+                        "candidate_name": cand_name,
+                        "role": role_title,
+                        "base_offered": base_val,
+                        "band_min": b_min_val,
+                        "deviation_pct": pct,
+                        "type": "below_min",
+                    })
+            except (ValueError, TypeError):
+                pass
+
+        if status == "pending":
+            off_date = _date(_value(off, "offered_on", "offered_at", "created_at"))
+            age_days = (today - off_date).days if off_date else None
+            stale_pending.append({
+                "offer_id": off_id,
+                "candidate_id": cand_ref,
+                "candidate_name": cand_name,
+                "role": role_title,
+                "offered_on": off_date.isoformat() if off_date else None,
+                "age_days": age_days,
+            })
+
+        if status in {"declined", "rejected"}:
+            reason = _text(_value(off, "decline_reason", "reason"), default="Unknown") or "Unknown"
+            decline_reasons[reason] += 1
+
+    total_declined = sum(decline_reasons.values())
+    decline_reason_pcts = {
+        r: (cnt / total_declined) if total_declined else 0.0
+        for r, cnt in decline_reasons.items()
+    }
+
+    return {
+        "salary_band_violations": sorted(violations, key=lambda x: (-abs(x["deviation_pct"]), str(x.get("offer_id") or ""))),
+        "stale_pending_offers": sorted(stale_pending, key=lambda x: (-(x["age_days"] or 0), str(x.get("offer_id") or ""))),
+        "decline_reasons": dict(sorted(decline_reasons.items(), key=lambda x: (-x[1], x[0]))),
+        "decline_reason_pcts": dict(sorted(decline_reason_pcts.items(), key=lambda x: (-x[1], x[0]))),
+    }
+
+
+def time_to_hire_by_source(tables: Tables) -> dict[str, Any]:
+    """Benchmark duration from Applied On to Offered On and Closed On across sources."""
+    apps = _rows(tables, "Applications")
+    candidates: dict[str, Record] = {}
+    for c in _rows(tables, "Candidates"):
+        rid = _text(_value(c, "id", "record_id"))
+        cid = _text(_value(c, "candidate_id"))
+        if rid:
+            candidates[rid] = c
+        if cid:
+            candidates[cid] = c
+
+    offers_by_app: dict[str, Record] = {}
+    for o in _rows(tables, "Offers"):
+        aid = _text(_value(o, "application_id", "application", "app_id"))
+        if aid:
+            offers_by_app[aid] = o
+
+    time_to_offer: dict[str, list[int]] = defaultdict(list)
+    time_to_hire: dict[str, list[int]] = defaultdict(list)
+
+    for app in apps:
+        if not _is_hired(app):
+            continue
+        cid = _linked_id(_value(app, "candidate_id", "candidate"))
+        cand = candidates.get(cid)
+        source = _text(_value(app, "source", "recruiting_source", "channel"))
+        if not source or source.lower() == "unknown":
+            source = _text(_value(cand, "source", "recruiting_source", "channel")) if cand else "Unknown"
+        source = source or "Unknown"
+
+        app_date = _date(_value(app, "applied_on", "applied_at", "application_date", "created_at"))
+        if not app_date:
+            continue
+
+        aid = _id(app)
+        off = offers_by_app.get(aid)
+        if off:
+            off_date = _date(_value(off, "offered_on", "offered_at"))
+            if off_date:
+                time_to_offer[source].append(max(0, (off_date - app_date).days))
+            dec_date = _date(_value(off, "decision_on", "closed_on", "responded_at"))
+            if dec_date:
+                time_to_hire[source].append(max(0, (dec_date - app_date).days))
+
+    avg_time_to_offer = {
+        s: round(sum(vals) / len(vals), 1)
+        for s, vals in sorted(time_to_offer.items())
+        if vals
+    }
+    avg_time_to_hire = {
+        s: round(sum(vals) / len(vals), 1)
+        for s, vals in sorted(time_to_hire.items())
+        if vals
+    }
+
+    return {
+        "avg_days_to_offer": avg_time_to_offer,
+        "avg_days_to_hire": avg_time_to_hire,
+    }
+
+
+def departmental_headcount_fill_rate(tables: Tables) -> dict[str, Any]:
+    """Compare headcount budget and req targets against actual offers and hires across departments."""
+    depts: dict[str, str] = {}
+    dept_names: dict[str, str] = {}
+    dept_budgets: dict[str, int] = {}
+    for d in _rows(tables, "Departments"):
+        d_id = _id(d)
+        d_code = _text(_value(d, "code", "department_code")) or d_id
+        d_name = _text(_value(d, "name", "department_name")) or d_code
+        try:
+            budget = int(_value(d, "headcount_budget", "budget", default=0) or 0)
+        except (ValueError, TypeError):
+            budget = 0
+        if d_id:
+            depts[d_id] = d_code
+            dept_names[d_code] = d_name
+            dept_budgets[d_code] = budget
+        if d_code:
+            depts[d_code] = d_code
+            dept_names[d_code] = d_name
+            dept_budgets[d_code] = budget
+
+    openings: dict[str, dict[str, Any]] = {}
+    dept_req_targets: dict[str, int] = defaultdict(int)
+    for o in _rows(tables, "Job Openings"):
+        oid = _id(o)
+        d_ref = _text(_value(o, "department", "department_id"))
+        d_code = depts.get(d_ref, d_ref) or "Unknown"
+        try:
+            hc = int(_value(o, "headcount", "headcount_target", default=1) or 1)
+        except (ValueError, TypeError):
+            hc = 1
+        openings[oid] = {"department_code": d_code, "headcount": hc}
+        dept_req_targets[d_code] += hc
+
+    apps = {_id(a): a for a in _rows(tables, "Applications")}
+    dept_offers: dict[str, int] = defaultdict(int)
+    dept_hires: dict[str, int] = defaultdict(int)
+
+    for off in _rows(tables, "Offers"):
+        app_ref = _text(_value(off, "application_id", "application", "app_id"))
+        app = apps.get(app_ref, {})
+        op_ref = _text(_value(app, "opening", "opening_id", "job_id"))
+        op_info = openings.get(op_ref, {})
+        d_code = op_info.get("department_code") or "Unknown"
+        dept_offers[d_code] += 1
+        st = _text(_value(off, "status")).lower()
+        if st in {"accepted", "hired", "joined"}:
+            dept_hires[d_code] += 1
+
+    terminal = {"hired", "rejected", "withdrawn", "closed", "accepted"}
+    dept_active: dict[str, int] = defaultdict(int)
+    for app in _rows(tables, "Applications"):
+        if _status(app) not in terminal:
+            op_ref = _text(_value(app, "opening", "opening_id", "job_id"))
+            op_info = openings.get(op_ref, {})
+            d_code = op_info.get("department_code") or "Unknown"
+            dept_active[d_code] += 1
+
+    summary: dict[str, dict[str, Any]] = {}
+    all_dept_codes = sorted(set(list(dept_budgets.keys()) + list(dept_req_targets.keys())))
+    for code in all_dept_codes:
+        if not code or code == "Unknown":
+            continue
+        req_hc = dept_req_targets.get(code, 0)
+        hires = dept_hires.get(code, 0)
+        offers_cnt = dept_offers.get(code, 0)
+        fill_rate = (hires / req_hc) if req_hc > 0 else 0.0
+        summary[code] = {
+            "department_code": code,
+            "department_name": dept_names.get(code, code),
+            "headcount_budget": dept_budgets.get(code, 0),
+            "req_headcount_target": req_hc,
+            "offers_extended": offers_cnt,
+            "hires_made": hires,
+            "fill_rate": fill_rate,
+            "fill_rate_pct": fill_rate * 100,
+            "active_pipeline": dept_active.get(code, 0),
+        }
+
+    return summary
 

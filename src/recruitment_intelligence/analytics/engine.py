@@ -27,16 +27,20 @@ from .metrics import (
     _text,
     _value,
     aging,
+    compensation_competitiveness,
+    departmental_headcount_fill_rate,
     funnel_bottleneck,
     funnel_stage_conversions,
     funnel_transitions,
     offer_acceptance_rate,
     pipeline_effort_sinks,
+    recruiter_interviewer_bandwidth,
     sensitivity_analysis,
     source_department_segmentation,
     source_effectiveness,
     stalled_applications,
     table_counts,
+    time_to_hire_by_source,
 )
 
 CANONICAL_TABLES: tuple[str, ...] = (
@@ -82,9 +86,14 @@ class AnalyticsResult(Serializable):
     funnel_metrics: Mapping[str, Any]
     aging_records: tuple[Mapping[str, Any], ...]
     stalled_applications: tuple[Mapping[str, Any], ...]
+    bandwidth_metrics: Mapping[str, Any] = ()
+    compensation_metrics: Mapping[str, Any] = ()
+    velocity_metrics: Mapping[str, Any] = ()
+    departmental_metrics: Mapping[str, Any] = ()
+    r2_claims: tuple[MetricClaim, ...] = ()
 
     def get_claim(self, name: str) -> MetricClaim | None:
-        for claim in self.claims:
+        for claim in self.claims + self.r2_claims:
             if claim.name == name or claim.metric == name:
                 return claim
         return None
@@ -108,6 +117,8 @@ class AnalyticsResult(Serializable):
                 c for c in self.claims
                 if c.name.startswith("funnel_") or c.name.endswith("_application_age_days") or c.name == "stalled_applications_count"
             )
+        if q in ("R2", "BONUS"):
+            return self.r2_claims
         return ()
 
 
@@ -554,6 +565,234 @@ class AnalyticsEngine:
 
         return tuple(claims)
 
+    def compute_recruiter_interviewer_bandwidth(
+        self,
+        tables: Mapping[str, Sequence[Mapping[str, Any]]] | Sequence[Mapping[str, Any]] | None = None,
+    ) -> tuple[MetricClaim, ...]:
+        """Compute recruiter and interviewer bandwidth, workload distribution, and scores."""
+        t = self._get_tables(tables)
+        data = recruiter_interviewer_bandwidth(t)
+        people_rows = _rows(t, "People")
+        iv_rows = _rows(t, "Interviews")
+        conf = _confidence_bucket(len(people_rows))
+
+        claims = [
+            MetricClaim(
+                metric="recruiter_load",
+                value=data["recruiter_load"],
+                confidence=conf,
+                unit="applications",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="People",
+                    record_ids=_clean_ids(people_rows),
+                    method="recruiter_interviewer_bandwidth",
+                ),),
+            ),
+            MetricClaim(
+                metric="interviewer_load",
+                value=data["interviewer_load"],
+                confidence=_confidence_bucket(len(iv_rows)),
+                unit="interviews",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Interviews",
+                    record_ids=_clean_ids(iv_rows)[:50],
+                    method="recruiter_interviewer_bandwidth",
+                ),),
+            ),
+            MetricClaim(
+                metric="top_interviewers_bandwidth_share",
+                value=data["top_two_interviewer_share"],
+                confidence=_confidence_bucket(len(iv_rows)),
+                unit="ratio",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Interviews",
+                    record_ids=_clean_ids(iv_rows)[:50],
+                    method="recruiter_interviewer_bandwidth",
+                    caveats=("Share of total interviews handled by top 2 interviewers.",),
+                ),),
+            ),
+            MetricClaim(
+                metric="strictest_interviewer",
+                value=data["strictest_interviewer"],
+                confidence=conf,
+                unit="evaluator",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Interviews",
+                    record_ids=_clean_ids(iv_rows)[:50],
+                    method="recruiter_interviewer_bandwidth",
+                    caveats=("Interviewer with lowest average evaluation score.",),
+                ),),
+            ),
+        ]
+        return tuple(claims)
+
+    def compute_compensation_competitiveness(
+        self,
+        tables: Mapping[str, Sequence[Mapping[str, Any]]] | Sequence[Mapping[str, Any]] | None = None,
+        as_of: date | datetime | str | None = None,
+    ) -> tuple[MetricClaim, ...]:
+        """Compute salary band deviations, ghost offers, and decline reasons."""
+        t = self._get_tables(tables)
+        ref_date = as_of if as_of is not None else self.as_of
+        data = compensation_competitiveness(t, as_of=ref_date)
+        offer_rows = _rows(t, "Offers")
+        conf = _confidence_bucket(len(offer_rows))
+
+        v_ids = tuple(sorted(str(v["offer_id"]) for v in data["salary_band_violations"] if v.get("offer_id")))
+        p_ids = tuple(sorted(str(p["offer_id"]) for p in data["stale_pending_offers"] if p.get("offer_id")))
+
+        claims = [
+            MetricClaim(
+                metric="salary_band_violations_count",
+                value=len(data["salary_band_violations"]),
+                confidence=conf,
+                unit="violations",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Offers",
+                    record_ids=v_ids,
+                    method="compensation_competitiveness",
+                    caveats=("Offers with base compensation outside requisition salary bands.",),
+                ),),
+            ),
+            MetricClaim(
+                metric="stale_pending_offers_count",
+                value=len(data["stale_pending_offers"]),
+                confidence=conf,
+                unit="offers",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Offers",
+                    record_ids=p_ids,
+                    method="compensation_competitiveness",
+                    caveats=("Offers in pending status exceeding typical decision windows.",),
+                ),),
+            ),
+            MetricClaim(
+                metric="offer_decline_reasons",
+                value=data["decline_reason_pcts"],
+                confidence=conf,
+                unit="distribution",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Offers",
+                    record_ids=_clean_ids(offer_rows),
+                    method="compensation_competitiveness",
+                ),),
+            ),
+        ]
+        return tuple(claims)
+
+    def compute_time_to_hire_velocity(
+        self,
+        tables: Mapping[str, Sequence[Mapping[str, Any]]] | Sequence[Mapping[str, Any]] | None = None,
+    ) -> tuple[MetricClaim, ...]:
+        """Compute time-to-offer and time-to-hire velocity benchmarks by source."""
+        t = self._get_tables(tables)
+        data = time_to_hire_by_source(t)
+        app_rows = _rows(t, "Applications")
+        conf = _confidence_bucket(len(app_rows))
+
+        claims = [
+            MetricClaim(
+                metric="time_to_offer_by_source",
+                value=data["avg_days_to_offer"],
+                confidence=conf,
+                unit="days",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Applications",
+                    record_ids=_clean_ids(app_rows)[:50],
+                    method="time_to_hire_by_source",
+                ),),
+            ),
+            MetricClaim(
+                metric="time_to_hire_by_source",
+                value=data["avg_days_to_hire"],
+                confidence=conf,
+                unit="days",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Applications",
+                    record_ids=_clean_ids(app_rows)[:50],
+                    method="time_to_hire_by_source",
+                ),),
+            ),
+        ]
+        return tuple(claims)
+
+    def compute_departmental_headcount_fill_rate(
+        self,
+        tables: Mapping[str, Sequence[Mapping[str, Any]]] | Sequence[Mapping[str, Any]] | None = None,
+    ) -> tuple[MetricClaim, ...]:
+        """Compute departmental headcount fill rate and progress against targets."""
+        t = self._get_tables(tables)
+        data = departmental_headcount_fill_rate(t)
+        dept_rows = _rows(t, "Departments")
+        conf = _confidence_bucket(len(dept_rows))
+
+        fill_rates = {k: v["fill_rate"] for k, v in data.items()}
+        offers_cnt = {k: v["offers_extended"] for k, v in data.items()}
+        hires_cnt = {k: v["hires_made"] for k, v in data.items()}
+
+        claims = [
+            MetricClaim(
+                metric="departmental_headcount_fill_rate",
+                value=fill_rates,
+                confidence=conf,
+                unit="ratio",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Departments",
+                    record_ids=_clean_ids(dept_rows),
+                    method="departmental_headcount_fill_rate",
+                ),),
+            ),
+            MetricClaim(
+                metric="departmental_offers",
+                value=offers_cnt,
+                confidence=conf,
+                unit="offers",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Offers",
+                    record_ids=_clean_ids(_rows(t, "Offers")),
+                    method="departmental_headcount_fill_rate",
+                ),),
+            ),
+            MetricClaim(
+                metric="departmental_hires",
+                value=hires_cnt,
+                confidence=conf,
+                unit="hires",
+                evidence=(EvidenceReference(
+                    source="airtable_snapshot",
+                    table="Offers",
+                    record_ids=_clean_ids(_rows(t, "Offers")),
+                    method="departmental_headcount_fill_rate",
+                ),),
+            ),
+        ]
+        return tuple(claims)
+
+    def compute_r2_claims(
+        self,
+        tables: Mapping[str, Sequence[Mapping[str, Any]]] | Sequence[Mapping[str, Any]] | None = None,
+        as_of: date | datetime | str | None = None,
+    ) -> tuple[MetricClaim, ...]:
+        """Aggregate all deterministic claims answering R2 strategic questions."""
+        t = self._get_tables(tables)
+        ref_date = as_of if as_of is not None else self.as_of
+        r2_bandwidth = self.compute_recruiter_interviewer_bandwidth(t)
+        r2_comp = self.compute_compensation_competitiveness(t, as_of=ref_date)
+        r2_vel = self.compute_time_to_hire_velocity(t)
+        r2_dept = self.compute_departmental_headcount_fill_rate(t)
+        return r2_bandwidth + r2_comp + r2_vel + r2_dept
+
     def compute_all_claims(
         self,
         tables: Mapping[str, Sequence[Mapping[str, Any]]] | Sequence[Mapping[str, Any]] | None = None,
@@ -561,11 +800,12 @@ class AnalyticsEngine:
     ) -> tuple[MetricClaim, ...]:
         """Aggregate all deterministic claims answering Q1–Q4."""
         t = self._get_tables(tables)
+        ref_date = as_of if as_of is not None else self.as_of
         q1_claim = self.compute_table_counts(t)
         q1_ind = self.compute_individual_table_counts(t)
         q2_claims = self.compute_source_effectiveness(t)
         q3_claim = self.compute_offer_acceptance_rate(t)
-        q4_claims = self.compute_funnel_diagnosis(t, as_of=as_of)
+        q4_claims = self.compute_funnel_diagnosis(t, as_of=ref_date)
         return (q1_claim,) + q1_ind + q2_claims + (q3_claim,) + q4_claims
 
     def analyze(
@@ -577,12 +817,17 @@ class AnalyticsEngine:
         t = self._get_tables(tables)
         ref_date = as_of if as_of is not None else self.as_of
         all_claims = self.compute_all_claims(t, as_of=ref_date)
+        r2_claims = self.compute_r2_claims(t, as_of=ref_date)
         raw_counts = table_counts(t)
         raw_sources = source_effectiveness(t)
         raw_offers = offer_acceptance_rate(t)
         raw_aging = tuple(aging(t, as_of=ref_date))
         raw_stalled = tuple(stalled_applications(t, as_of=ref_date))
         conv = funnel_stage_conversions(t)
+        raw_bandwidth = recruiter_interviewer_bandwidth(t)
+        raw_comp = compensation_competitiveness(t, as_of=ref_date)
+        raw_vel = time_to_hire_by_source(t)
+        raw_dept = departmental_headcount_fill_rate(t)
 
         funnel_summary = {
             "transitions": {k: v["conversion_rate"] for k, v in conv["transitions"].items()},
@@ -598,6 +843,11 @@ class AnalyticsEngine:
             funnel_metrics=funnel_summary,
             aging_records=raw_aging,
             stalled_applications=raw_stalled,
+            bandwidth_metrics=raw_bandwidth,
+            compensation_metrics=raw_comp,
+            velocity_metrics=raw_vel,
+            departmental_metrics=raw_dept,
+            r2_claims=r2_claims,
         )
 
     # Explorer aliases for maximum compatibility
