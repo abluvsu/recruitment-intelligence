@@ -24,6 +24,7 @@ outputs/*
 !outputs/briefing.json
 !outputs/candidate_actions.json
 !outputs/session_transcript.jsonl
+!outputs/submission_email.md
 .geminiignore
 offline-output/
 outputs/offline-cli/
