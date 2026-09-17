@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruitment Intelligence — Interactive Executive Review for Ankit</title>
+<style>
+  :root {
+    --bg-base: #0f172a;
+    --bg-card: #1e293b;
+    --bg-surface: #273549;
+    --border: #334155;
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #38bdf8;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #f43f5e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  body { background: var(--bg-base); color: var(--text); padding: 24px; line-height: 1.5; }
+  .container { max-width: 1080px; margin: 0 auto; }
+  .header {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+  }
+  .header-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; }
+  .title { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: -0.02em; }
+  .subtitle { color: var(--text-muted); font-size: 14px; margin-top: 6px; }
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .badge {
+    padding: 5px 12px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+  .b-green { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .b-blue { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  .b-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .b-rose { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+  
+  /* Quick action cards */
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .link-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .link-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.15);
+  }
+  .link-title { font-size: 14px; font-weight: 700; color: #fff; display: flex; align-items: center; justify-content: space-between; }
+  .link-desc { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+  .link-btn { margin-top: 12px; font-size: 12px; font-weight: 600; color: var(--accent); }
+
+  /* Tabs navigation */
+  .tabs { display: flex; gap: 8px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 8px; overflow-x: auto; }
+  .tab-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.05); }
+  .tab-btn.active { color: #fff; background: var(--bg-surface); border: 1px solid var(--border); }
+  
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .card-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+  
+  table { width: 100%; border-collapse: collapse; font-size: 13px; text-align: left; }
+  th { background: rgba(15, 23, 42, 0.6); color: var(--text-muted); padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+  td { padding: 12px 14px; border-bottom: 1px solid rgba(51, 65, 85, 0.5); color: #cbd5e1; }
+  tr:hover td { background: rgba(255, 255, 255, 0.02); }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+  .stat-box { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .stat-label { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .stat-val { font-size: 26px; font-weight: 800; color: #fff; margin-top: 4px; }
+  .stat-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+  .code-box {
+    background: #090d16;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-size: 12px;
+    color: #38bdf8;
+    overflow-x: auto;
+    line-height: 1.6;
+  }
+
+  .action-pill { display: inline-block; padding: 3px 8px; font-size: 11px; font-weight: 700; border-radius: 4px; }
+  .ap-urgent { background: rgba(244, 63, 94, 0.2); color: #fb7185; }
+  .ap-review { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <!-- Header -->
+  <div class="header">
+    <div class="header-top">
+      <div>
+        <h1 class="title">Recruitment Intelligence Assessment</h1>
+        <p class="subtitle">Executive Review &amp; Forensic Pipeline Audit for <strong>Ankit Menon</strong> &amp; Hiring Team</p>
+      </div>
+      <div style="text-align: right;">
+        <div style="font-size: 12px; color: var(--text-muted);">Candidate / Engineer</div>
+        <div style="font-weight: 700; color: #fff; font-size: 15px;">Ashutosh Bhandekar</div>
+        <div style="font-size: 12px; color: var(--accent);">ashutosh.bhandekar.pro@gmail.com</div>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge b-green">● 511 / 511 Tests Passing</span>
+      <span class="badge b-blue">Deterministic Python</span>
+      <span class="badge b-amber">Read-Only Airtable Ingestion</span>
+      <span class="badge b-rose">Zero LLM Hallucinations</span>
+    </div>
+  </div>
+
+  <!-- Direct Link Tiles for Ankit (Zero Effort) -->
+  <div class="quick-links">
+    <a href="https://github.com/abluvsu/recruitment-intelligence/blob/master/outputs/dashboard.html" target="_blank" class="link-card">
+      <div class="link-title">
+        <span>📊 Interactive Dashboard</span>
+        <span>&rarr;</span>
+      </div>
+      <div class="link-desc">Self-contained browser dashboard with real-time KPI tiles &amp; funnel drop-offs.</div>
+      <div class="link-btn">View on GitHub</div>
+    </a>
+    
+    <a href="https://github.com/abluvsu/recruitment-intelligence/blob/master/outputs/findings_table.md" target="_blank" class="link-card">
+      <div class="link-title">
+        <span>📋 Findings Table</span>
+        <span>&rarr;</span>
+      </div>
+      <div class="link-desc">Complete Q1–Q5 answers with metrics, values, deterministic methods &amp; confidence.</div>
+      <div class="link-btn">Read findings_table.md</div>
+    </a>
+
+    <a href="https://github.com/abluvsu/recruitment-intelligence/blob/master/outputs/memo.md" target="_blank" class="link-card">
+      <div class="link-title">
+        <span>📝 Executive Memo</span>
+        <span>&rarr;</span>
+      </div>
+      <div class="link-desc">One-page briefing with founder takeaways and Monday morning operating schedule.</div>
+      <div class="link-btn">Read memo.md</div>
+    </a>
+
+    <a href="https://github.com/abluvsu/recruitment-intelligence" target="_blank" class="link-card">
+      <div class="link-title">
+        <span>💻 GitHub Repository</span>
+        <span>&rarr;</span>
+      </div>
+      <div class="link-desc">Full modular production codebase, test suite, and offline cached snapshot.</div>
+      <div class="link-btn">abluvsu/recruitment-intelligence</div>
+    </a>
+  </div>
+
+  <!-- Interactive Tabs for Ankit -->
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('overview', this)">📌 Quick Executive Overview</button>
+    <button class="tab-btn" onclick="showTab('table', this)">📋 Q1–Q5 Findings Table</button>
+    <button class="tab-btn" onclick="showTab('actions', this)">⚡ Monday Founder Actions</button>
+    <button class="tab-btn" onclick="showTab('replay', this)">🛠️ 60-Second Offline Replay</button>
+  </div>
+
+  <!-- TAB 1: OVERVIEW -->
+  <div id="tab-overview" class="tab-content active">
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-label">Base Record Scope</div>
+        <div class="stat-val">892</div>
+        <div class="stat-sub">8 tables · 350 applications</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Top Talent Channel</div>
+        <div class="stat-val" style="color: #34d399;">41.2%</div>
+        <div class="stat-sub">Referral: 7 hires / 17 apps</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Offer Acceptance Rate</div>
+        <div class="stat-val" style="color: #fbbf24;">72.2%</div>
+        <div class="stat-sub">26 of 36 formal extended</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Funnel Bottleneck</div>
+        <div class="stat-val" style="color: #fb7185;">74.8%</div>
+        <div class="stat-sub">Interview &rarr; Offer attrition</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-label">Stagnant Active Apps</div>
+        <div class="stat-val" style="color: #a855f7;">105</div>
+        <div class="stat-sub">30% dormant pipeline (>30d)</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🎯 Executive Summary for Ankit</div>
+      <p style="font-size: 14px; color: #cbd5e1; margin-bottom: 12px;">
+        Our recruitment funnel does not have an inbound volume problem. Rather, it suffers from <strong>heavy bandwidth absorption by low-yield channels</strong> and <strong>severe drop-off at the interview stage</strong>:
+      </p>
+      <ul style="font-size: 13px; color: #94a3b8; display: flex; flex-direction: column; gap: 8px; padding-left: 18px;">
+        <li><strong style="color: #fff;">Effort Drain:</strong> Job Boards (4.2% conv) and LinkedIn (2.6% conv) consumed <span style="color: #fb7185;">71.9% of all interview loops (115/160)</span> for only 11 hires combined.</li>
+        <li><strong style="color: #fff;">Under-invested Star:</strong> Employee Referrals yielded <span style="color: #34d399;">41.2% hire conversion</span> at just 2.0 interviews per hire with 100% offer acceptance.</li>
+        <li><strong style="color: #fff;">Pending Offer Mirage:</strong> 5 offers remain pending for 47 to 283 days ($667k total committed comp). When properly treated as lost, true operational acceptance is 72.2% (not 83.9%).</li>
+        <li><strong style="color: #fff;">Headcount Starvation:</strong> Critical business departments are severely under-resourced: Data &amp; Analytics (0% fill), Engineering (20% fill), Marketing (0% fill).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TAB 2: FINDINGS TABLE -->
+  <div id="tab-table" class="tab-content">
+    <div class="card">
+      <div class="card-title">📋 Comprehensive Findings Table</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>Method</th>
+            <th>Confidence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Q1 — Scope the Base</strong></td>
+            <td>Record Counts &amp; Schema</td>
+            <td><strong>892 records</strong> across 8 tables (Apps: 350, Candidates: 300, Interviews: 160, Offers: 36, Openings: 24, People: 14, Depts: 8, Findings: 0)</td>
+            <td>Deterministic schema profiling, primary key validation, record aggregation</td>
+            <td><span class="badge b-green">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Q2 — Recruiting Sources</strong></td>
+            <td>Top Source vs. Effort Sinks</td>
+            <td><strong>Top: Referral</strong> (41.2% conv, 7 hires, 2.0 ivs/hire).<br><strong>Sinks: Job Board</strong> (4.2% conv, 9.9 ivs/hire) &amp; <strong>LinkedIn</strong> (2.6% conv, 16.0 ivs/hire) absorbing 71.9% of interview loops</td>
+            <td>Source inheritance mapping, funnel conversion tracking, touch ratio math</td>
+            <td><span class="badge b-green">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Q3 — Offer Acceptance</strong></td>
+            <td>Formal Acceptance Rate</td>
+            <td><strong>72.2% headline</strong> (26/36 formal extended). <strong>83.9% closed/resolved</strong> (26/31). 5 stale pending offers aged 47–283d properly treated as lost</td>
+            <td>Accepted / formal extended offers; staleness counterfactual sensitivity</td>
+            <td><span class="badge b-green">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Q4 — Funnel Breakdown</strong></td>
+            <td>Bottleneck &amp; Stagnancy</td>
+            <td><strong>Bottleneck: Interview &rarr; Offer</strong> (25.2% pass / 74.8% attrition; 107 eliminated).<br><strong>Stagnant: 105 active apps</strong> (30% of pipeline) dormant up to 447 days</td>
+            <td>Stage-to-stage transition conversion, activity date staleness audit</td>
+            <td><span class="badge b-green">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Q5 — Data Trust Audit</strong></td>
+            <td>Quality Anomalies</td>
+            <td>1. 100% apps lack Source (inherited).<br>2. 6 duplicate candidate pairs (12 records).<br>3. 50 re-applications (+300 ID shift).<br>4. 5 salary band violations (up to +92.5%).<br>5. Zero mutations to read-only source</td>
+            <td>Referential integrity validation, phone/name clustering, band threshold checks</td>
+            <td><span class="badge b-green">High</span></td>
+          </tr>
+          <tr>
+            <td><strong>Bonus — Workload</strong></td>
+            <td>Concentration &amp; Headcount</td>
+            <td>Ankit Menon leads recruiter load (129 apps). Top 2 interviewers handle 43.8% of loops. Data (0%), Eng (20%), Mkt (0%) headcount starved</td>
+            <td>Workload distribution profiling, interviewer score analysis, dept target tracking</td>
+            <td><span class="badge b-green">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 3: MONDAY ACTIONS -->
+  <div id="tab-actions" class="tab-content">
+    <div class="card">
+      <div class="card-title">⚡ Immediate Action List for Monday Morning</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Application</th>
+            <th>Candidate</th>
+            <th>Role</th>
+            <th>Flag / Violation</th>
+            <th>Action Required</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color: var(--accent);">APP-00012</strong></td>
+            <td>Ravi Reddy</td>
+            <td>VP Engineering</td>
+            <td><span class="action-pill ap-urgent">283d Pending Offer</span></td>
+            <td>Issue formal 24h deadline inquiry; release $180k requisition budget if unresponsive</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent);">APP-00348</strong></td>
+            <td>Kavya Mehta</td>
+            <td>Lead Data Scientist</td>
+            <td><span class="action-pill ap-urgent">258d Pending Offer</span></td>
+            <td>Direct founder outreach; unblock critical Data &amp; Analytics team headcount</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent);">APP-00033 / 333</strong></td>
+            <td>Mohit Patel</td>
+            <td>Senior DevOps Engineer</td>
+            <td><span class="action-pill ap-urgent">Dual Active Offers</span></td>
+            <td>Merge duplicate candidate applications; reconcile single offer package ($125k)</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent);">APP-00028</strong></td>
+            <td>Neha Agarwal</td>
+            <td>Junior Content Marketer</td>
+            <td><span class="action-pill ap-review">+92.5% Band Breach</span></td>
+            <td>Require CFO &amp; HM sign-off on $77k offer against approved $40k maximum band</td>
+          </tr>
+          <tr>
+            <td><strong style="color: var(--accent);">APP-00004</strong></td>
+            <td>Neha Agarwal</td>
+            <td>Junior Content Marketer</td>
+            <td><span class="action-pill ap-review">47d Pending Offer</span></td>
+            <td>Request final closing decision; unfreeze marketing requisition if declined</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TAB 4: REPLAY -->
+  <div id="tab-replay" class="tab-content">
+    <div class="card">
+      <div class="card-title">🛠️ 60-Second Evaluator Replay</div>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        The pipeline is 100% deterministic and offline-ready. Ankit or any evaluator can clone the repo and verify all numbers in 3 simple commands:
+      </p>
+      <div class="code-box">
+# 1. Clone the repository
+git clone https://github.com/abluvsu/recruitment-intelligence.git
+cd recruitment-intelligence
+
+# 2. Run the complete test suite (511 passing tests)
+python -m pytest -q
+
+# 3. Replay offline pipeline against cached snapshot
+python -m recruitment_intelligence.pipeline data/raw/airtable_snapshot.json --as-of 2025-02-01 --output-dir outputs/replay
+      </div>
+      <div style="margin-top: 14px; font-size: 12px; color: #94a3b8;">
+        &bull; <strong>Zero API tokens required</strong> &bull; <strong>Zero external network calls</strong> &bull; <strong>Zero flaky non-deterministic LLM tests</strong>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function showTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
