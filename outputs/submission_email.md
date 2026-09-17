@@ -1,101 +1,106 @@
-# SUBJECT: Recruitment Intelligence Assessment Submission — Ashutosh Bhandekar
+# Subject: Recruitment Intelligence Submission — Ashutosh Bhandekar
 
-**To:** hiring-team@company.com / assessment-evaluators
-**From:** Ashutosh Bhandekar (ashutosh.bhandekar.pro@gmail.com)
-**Repository:** https://github.com/abluvsu/recruitment-intelligence
-**Submission Archive:** recruitment_intelligence_submission.zip (1.54 MB)
+Hi Ankit,
 
----
+Here is my submission for the recruitment intelligence assessment. 
 
-Hi Team,
+I built the pipeline in deterministic Python so it runs offline directly against the Airtable snapshot. There are zero external API calls and zero LLM dependencies in the analytics core. The full test suite has 511 passing tests and runs in about 25 seconds.
 
-Please find below my complete submission for the **Recruitment Intelligence** technical assessment.
+If you want to view everything online without downloading files:
+- Memo & Monday Plan: https://github.com/abluvsu/recruitment-intelligence/blob/master/outputs/memo.md
+- Findings Table: https://github.com/abluvsu/recruitment-intelligence/blob/master/outputs/findings_table.md
+- GitHub Repo: https://github.com/abluvsu/recruitment-intelligence
+- Interactive Dashboard: Open the attached `dashboard.html` in your browser
 
-The solution is architected as an offline-first, deterministic operating system that ingests read-only Airtable data and produces actionable founder insights with **511 / 511 tests passing** in under 27 seconds.
-
-Below you will find:
-1. **Repository & Replay Verification** (Part 1)
-2. **Findings Table (Q1–Q5 & Strategic Insights)** (Part 2)
-3. **The One-Page Executive Memo & Monday Operating Schedule** (Part 3)
-4. **Session Transcript Verification** (Part 4)
-5. **Interactive Executive Dashboard Highlight** (Top 1% Deliverable)
+Here is the breakdown of the 5 questions, the findings table, and what I would tackle on Monday morning.
 
 ---
 
-## 1. Submission Deliverables Summary
+### The 5 Questions
 
-* **GitHub Repository:** https://github.com/abluvsu/recruitment-intelligence
-* **Standalone Zip Archive:** Attached as 
-ecruitment_intelligence_submission.zip (1.54 MB; fully self-contained with cached offline snapshot)
-* **Findings Table:** Attached as outputs/findings_table.csv and outputs/findings_table.md
-* **Executive Memo:** Attached as outputs/memo.md and outputs/briefing.html
-* **Session Transcript:** Attached as outputs/session_transcript.jsonl (1.05 MB)
-* **Interactive Executive Dashboard:** Attached as outputs/dashboard.html
+#### Q1: Scope the Base
+The base contains **892 total records** across 8 tables:
+- Applications: 350
+- Candidates: 300
+- Interviews: 160
+- Offers: 36
+- Job Openings: 24
+- People: 14
+- Departments: 8
+- Findings: 0 (read-only destination)
 
-### Rapid Replay Instructions (Offline-First)
-`ash
-git clone https://github.com/abluvsu/recruitment-intelligence.git
-cd recruitment-intelligence
+#### Q2: Where Should We Recruit From?
+- **Best Source: Referrals.** 17 applications yielded 7 hires (41.2% conversion). It took only 2 interviews per hire, and 100% of candidates who received an offer accepted.
+- **Effort Sinks: Job Boards & LinkedIn.** Job boards gave 10 hires from 240 applications (4.2% conversion, 9.9 interviews/hire). LinkedIn gave 1 hire from 38 applications (2.6% conversion, 16 interviews/hire). 
+- Together, Job Boards and LinkedIn soaked up **71.9% of your team's interview hours** (115 of 160 loops) to produce just 11 hires.
 
-# Run full test suite (511 passing tests)
-python -m pytest -q
+#### Q3: Offer Acceptance Rate
+- **Headline Rate: 72.2%** (26 accepted out of 36 extended offers).
+- If you only look at resolved offers (26 accepted, 5 declined), the rate is 83.9%.
+- But 5 offers are still marked "Pending". These aren't fresh decisions—they have been sitting untouched between 47 and 283 days. In reality, these are dead offers. Counting them as unaccepted keeps the true rate at **72.2%**.
 
-# Replay deterministic pipeline from cached snapshot
-python -m recruitment_intelligence.pipeline data/raw/airtable_snapshot.json --as-of 2025-02-01 --output-dir outputs/replay
-`
+#### Q4: Where is the Funnel Breaking?
+- **The big bottleneck is Interview to Offer.** 74.8% of interviewed candidates drop out here (107 people cut: 70 in Round 1, 14 in Final, 23 No-Shows). Only 25.2% make it to an offer.
+- **Pipeline backlog:** 105 applications (30% of all applications) are sitting in active stages with no activity for weeks or months (some up to 447 days).
+
+#### Q5: What in This Data Would You Not Trust?
+1. **Source attribution is broken:** The Applications table has no Source column. All source data is inherited from the Candidates table, which breaks when a candidate applies twice through different channels.
+2. **Duplicate candidates:** 6 pairs of candidate records share identical names and phone numbers with different email addresses.
+3. **Re-application shift:** Applications 301 to 350 are re-applications. 4 candidates applied twice to the exact same role.
+4. **Salary band violations:** 5 of the 36 offers violate approved salary bands. For example, a Junior Content Marketer was offered $77,000 against a $40,000 ceiling (+92.5%).
 
 ---
 
-## 2. Findings Table (Questions 1 to 5)
+### Findings Table
 
 | Question | Metric | Value | Method | Confidence |
 |---|---|---|---|:---:|
-| **Q1 — Scope the base** | Table Record Counts & Schema Definition | **892 total records across 8 tables**<br>• Applications: 350<br>• Candidates: 300<br>• Interviews: 160<br>• Offers: 36<br>• Job Openings: 24<br>• People: 14<br>• Departments: 8<br>• Findings: 0 | Deterministic schema profiling, primary key validation, and record count aggregation across all tables | **High** |
-| **Q2 — Where should we recruit from?** | Top Source vs. Effort Sinks | **Top Channel: Referral** (41.2% conversion, 7 hires/17 apps, 2.0 interviews/hire, 100% offer acceptance, 47d cycle).<br>**Effort Sinks: Job Board** (4.2% conversion, 9.9 ivs/hire, 142 rejections) and **LinkedIn** (2.6% conversion, 16.0 ivs/hire, 1 hire/38 apps) which together absorbed **71.9% of all interview loops (115/160)** for only 11 hires | Candidate source inheritance mapping, stage-by-stage conversion tracking, and interview-to-hire effort touch ratio calculation | **High** |
-| **Q3 — What is our offer acceptance rate?** | Formal Offer Acceptance Rate | **Headline Acceptance Rate: 72.2%** (26 accepted / 36 formal extended).<br>**Resolved Acceptance Rate: 83.9%** (26 accepted / 31 resolved: 5 declined for Role Scope [3], Comp [1], Counter Offer [1]).<br>Sensitivity analysis: All 5 pending offers are stale zombie offers aged **47 to 283 days**; when realistically treated as lost, operational yield remains **72.2%** | Accepted formal offers divided by total formal extended offers (excluding draft/rescinded); timestamp staleness and sensitivity analysis on pending offers | **High** |
-| **Q4 — Where is the funnel breaking?** | Funnel Bottleneck & Stagnant Pipeline | **Primary Bottleneck: Interview → Offer** with **25.2% pass-through / 74.8% attrition** (107 candidates eliminated: 70 in Round 1, 14 in Final, 23 No Shows).<br>**Pipeline Dormancy: 105 active applications (30.0% of base)** stagnant up to 447 days (45 Applied, 32 Screening, 23 Interview, 5 Offer) | Stage-to-stage transition conversion computation, activity date staleness audit, and rejection/decline reason breakdown | **High** |
-| **Q5 — What in this data would you not trust?** | Data Quality Anomaly Count & Metric Sensitivity | **Critical Data Quality Risks:**<br>1. **Source Attribution:** 100% applications lack Source column; fully inherited from Candidates.<br>2. **Duplicate Candidates:** 6 duplicate candidate pairs (12 records: CAND-00001..12) sharing identical phones/names.<br>3. **+300 Shift:** 50 re-applications (APP-00301..350); 4 candidates applied twice to same opening.<br>4. **Salary Band Breaches:** 5 of 36 offers (13.9%) violate bands (+92.5% over max for Jr Content Marketer, +51.2% for Jr PM).<br>5. **Read-Only Guarantee:** Findings table has 0 records; all outputs written locally | Referential integrity validation, phone/name duplicate clustering, timestamp chronology audit, requisition salary band boundary checks, and counterfactual sensitivity modeling | **High** |
-| **Bonus — Strategic Insights** | Recruiter Load, Interviewer Concentration & Headcount Fill | • Recruiter load imbalanced (Ankit Menon handles 129 apps vs Chetan 36).<br>• Top 2 interviewers absorb 43.8% of interview loops; Rakesh Dubey is strictest evaluator (2.1/5.0 avg score).<br>• Critical starvation in technical teams: Data (0% fill), Engineering (20% fill), Marketing (0% fill) | Workload distribution profiling, interviewer score analysis, and departmental requisition target vs hire tracking | **High** |
+| **Q1 — Scope the Base** | Record Counts & Schema | 892 records across 8 tables (350 apps, 300 candidates, 160 interviews, 36 offers) | Deterministic schema profiling & primary key validation | High |
+| **Q2 — Sourcing Efficiency** | Conversion & Interview Burden | Top: Referral (41.2% conv, 2.0 ivs/hire). Sinks: Job Boards (4.2%) & LinkedIn (2.6%) taking 71.9% of interview loops | Source inheritance mapping & interview-to-hire ratio | High |
+| **Q3 — Offer Acceptance** | Acceptance Rate | 72.2% headline (26/36). 83.9% resolved (26/31). 5 zombie offers aged 47–283d treated as lost | Formal accepted / formal extended offers | High |
+| **Q4 — Funnel Bottlenecks** | Stage Drop-off & Stagnation | Bottleneck: Interview to Offer (25.2% pass / 74.8% drop). 105 dormant active applications | Stage transition math & activity staleness audit | High |
+| **Q5 — Data Trust Audit** | Anomalies & Integrity Risks | Missing application source; 6 duplicate candidate pairs; 5 salary band breaches; 50 re-applications | Phone/name clustering, band boundary checks | High |
+| **Bonus — Workload** | Recruiter & Team Fill | Ankit Menon handles 129 apps. Top 2 interviewers take 43.8% of loops. Data (0%) & Eng (20%) headcount starved | Workload distribution & requisition target tracking | High |
 
 ---
 
-## 3. The One-Page Executive Memo
+### Monday Morning Action Plan
 
-### Context & Diagnosis
-Our pipeline suffers not from an inbound top-of-funnel shortage, but from **severe mid-funnel evaluation friction** and **channel resource misallocation**:
-1. **We are subsidizing low-yield channels:** Job Board and LinkedIn accounted for **79.4% of total applicants** (278/350) and **71.9% of interview loops** (115/160), yet yielded only **11 of our 26 hires**.
-2. **Our highest ROI source is under-leveraged:** Employee Referrals deliver a **41.2% hire rate** at only **2.0 interviews per hire** with **100% offer acceptance**.
-3. **The pipeline is clogged with ghost applications:** 105 applications (30% of total active pipeline) have had zero recorded activity for >30 days (some up to 447 days).
-4. **Offer Governance is leaking capital:** 5 offers breach requisition salary ceilings (notably Junior Content Marketer at +92.5% over band max), and 5 pending offers have sat untouched for up to 283 days without formal disposition.
-
-### Monday Morning Founder Operating Schedule
-* **09:00 – 10:00 | Zombie Offer Sprint:** Contact Ravi Reddy (APP-00012, 283d pending) and Kavya Mehta (APP-00348, 258d pending) with an explicit 24-hour decision deadline. Consolidate Mohit Patel duplicate records (APP-00033 & APP-00333).
-* **10:00 – 11:30 | Executive Compensation Review:** Audit the 5 out-of-band offers with People/Finance; require C-level approval for Neha Agarwal (APP-00028,  vs  band max).
-* **11:30 – 12:30 | Sourcing Channel Re-allocation:** Throttle uncalibrated Job Board and LinkedIn sourcing filters. Launch a formal Employee Referral Bounty program (,000–,000).
-* **14:00 – 15:30 | Interviewer Bandwidth Relief:** Add 3 shadow/backup interviewers to alleviate concentration on Rakesh Dubey and Priya Sharma (who currently conduct 43.8% of all interviews).
-* **15:30 – 16:30 | Pipeline Hygiene Sweep:** Run batch archiving workflows on the 105 dormant applications with respectful closing correspondence.
-
----
-
-## 4. Session Transcript
-The complete execution log is exported at outputs/session_transcript.jsonl (1.05 MB). It documents the full forensic discovery, deterministic script execution, schema validation, and test suite execution.
+1. **09:00 - 10:00 | Clear the Stale Offers:**
+   - Call Ravi Reddy (`APP-00012`, 283 days pending, $180k) and Kavya Mehta (`APP-00348`, 258 days pending, $140k). Give them a 24-hour window to decide, or close them out and free up the budget.
+   - Merge the two open offers for Mohit Patel (`APP-00033` and `APP-00333`).
+2. **10:00 - 11:30 | Review Out-of-Band Compensation:**
+   - Sit down with Finance on Neha Agarwal's offer (`APP-00028`), which is sitting at $77,000 against an approved $40,000 cap.
+3. **11:30 - 12:30 | Fix Sourcing Channels:**
+   - Tighten resume screening on Job Boards and LinkedIn to protect engineering time.
+   - Put a formal employee referral bonus in place ($2,000 to $5,000) to get more volume into our best channel.
+4. **14:00 - 15:30 | Balance Interviewer Load:**
+   - Rakesh Dubey and Priya Sharma are handling almost half of all interviews (43.8%). Bring on 2 or 3 backup interviewers to reduce scheduling lag.
+5. **15:30 - 16:30 | Clean Up the Pipeline:**
+   - Send clean closing emails to the 105 candidates who have been sitting in the pipeline with no updates.
 
 ---
 
-## 5. Top 1% Deliverable: Interactive Executive Dashboard
-In addition to the static deliverables, I have built an interactive, standalone HTML executive dashboard located at outputs/dashboard.html. It can be opened in any web browser without server dependencies, featuring:
-* Real-time KPI summary tiles
-* Dynamic funnel visualization with stage-by-stage drop-off analytics
-* Talent channel efficiency & interview bandwidth matrix
-* Immediate candidate intervention ledger
-* Department headcount fill rate tracker
-* Isolated external market benchmark appendix
+### How to Run the Code
 
-Please let me know if you would like me to unpack any specific metric or pipeline component. Looking forward to discussing the results!
+If you want to verify the numbers yourself:
+```bash
+git clone https://github.com/abluvsu/recruitment-intelligence.git
+cd recruitment-intelligence
+python -m pytest -q
+python -m recruitment_intelligence.pipeline data/raw/airtable_snapshot.json --as-of 2025-02-01 --output-dir outputs/replay
+```
 
-Best regards,
+### Attached Files
+1. `recruitment_intelligence_submission.zip` — Complete code repository and local snapshot.
+2. `findings_table.csv` — CSV version of the findings table above.
+3. `memo.md` — One-page executive memo.
+4. `session_transcript.jsonl` — Full terminal and session execution log.
+5. `dashboard.html` — Interactive visual dashboard. Double-click to open in any web browser.
 
-**Ashutosh Bhandekar**
-Full-Stack Engineer & AI Systems Architect
-ashutosh.bhandekar.pro@gmail.com
+Happy to walk through the numbers or code anytime.
+
+Best,  
+Ashutosh Bhandekar  
+ashutosh.bhandekar.pro@gmail.com  
 GitHub: https://github.com/abluvsu
