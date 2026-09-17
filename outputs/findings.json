@@ -1,0 +1,201 @@
+{
+  "findings": [
+    {
+      "affected_records": [],
+      "category": "source_effectiveness",
+      "caveats": [],
+      "confidence": "medium",
+      "description": "Observed funnel performance. Does not account for external agency placement fees.",
+      "evidence": [
+        {
+          "caveats": [],
+          "filters": {},
+          "method": "deterministic_python",
+          "query": null,
+          "record_ids": [],
+          "source": "analytics.engine",
+          "table": null
+        }
+      ],
+      "finding_id": "find-top-source",
+      "interpretation": "Observed funnel performance. Does not account for external agency placement fees.",
+      "metric": null,
+      "observed_fact": "Referral produced 7 hire(s) from 17 application(s) (41.2% conversion).",
+      "recommendation": "Maintain pipeline volume in Referral while evaluating candidate quality.",
+      "recommendations": [
+        "Maintain pipeline volume in Referral while evaluating candidate quality."
+      ],
+      "severity": "low",
+      "title": "Top Recruiting Source: Referral"
+    },
+    {
+      "affected_records": [],
+      "category": "offer_acceptance",
+      "caveats": [],
+      "confidence": "high",
+      "description": "Measures closing effectiveness. Denominator excludes draft/rescinded offers.",
+      "evidence": [
+        {
+          "caveats": [],
+          "filters": {},
+          "method": "deterministic_python",
+          "query": null,
+          "record_ids": [],
+          "source": "analytics.engine",
+          "table": null
+        }
+      ],
+      "finding_id": "find-offer-acceptance",
+      "interpretation": "Measures closing effectiveness. Denominator excludes draft/rescinded offers.",
+      "metric": null,
+      "observed_fact": "Accepted 26 of 36 formal offers (72.2%).",
+      "recommendation": "Review unaccepted offers for competitive compensation and candidate objections.",
+      "recommendations": [
+        "Review unaccepted offers for competitive compensation and candidate objections."
+      ],
+      "severity": "low",
+      "title": "Formal Offer Acceptance Rate"
+    },
+    {
+      "affected_records": [],
+      "category": "funnel_diagnosis",
+      "caveats": [],
+      "confidence": "high",
+      "description": "Stage with greatest drop-off rate between sequential recruitment milestones.",
+      "evidence": [
+        {
+          "caveats": [],
+          "filters": {},
+          "method": "deterministic_python",
+          "query": null,
+          "record_ids": [],
+          "source": "analytics.engine",
+          "table": null
+        }
+      ],
+      "finding_id": "find-funnel-bottleneck",
+      "interpretation": "Stage with greatest drop-off rate between sequential recruitment milestones.",
+      "metric": null,
+      "observed_fact": "Highest stage-to-stage attrition occurs at the 'interview_to_offer' transition.",
+      "recommendation": "Investigate evaluation criteria and candidate drop-off reasons in interview_to_offer.",
+      "recommendations": [
+        "Investigate evaluation criteria and candidate drop-off reasons in interview_to_offer."
+      ],
+      "severity": "medium",
+      "title": "Funnel Bottleneck: interview_to_offer"
+    },
+    {
+      "affected_records": [],
+      "category": "workload_distribution",
+      "caveats": [],
+      "confidence": "high",
+      "description": "Workload concentration creates single-point-of-failure risks and scheduling delays.",
+      "evidence": [
+        {
+          "caveats": [],
+          "filters": {},
+          "method": "deterministic_python",
+          "query": null,
+          "record_ids": [],
+          "source": "analytics.engine",
+          "table": null
+        }
+      ],
+      "finding_id": "find-recruiter-bandwidth",
+      "interpretation": "Workload concentration creates single-point-of-failure risks and scheduling delays.",
+      "metric": null,
+      "observed_fact": "Recruiter load led by Ankit Menon (129 apps). Top 2 interviewers absorbed 43.8% of interview bandwidth. Strictest evaluator identified: Rakesh Dubey.",
+      "recommendation": "Rebalance screening load across recruiters and add backup interviewers for overloaded engineers.",
+      "recommendations": [
+        "Rebalance screening load across recruiters and add backup interviewers for overloaded engineers."
+      ],
+      "severity": "medium",
+      "title": "Recruiter and Interviewer Bandwidth Concentration"
+    },
+    {
+      "affected_records": [],
+      "category": "compensation",
+      "caveats": [],
+      "confidence": "high",
+      "description": "Salary band overruns pose budget risks; unclosed pending offers inflate apparent pipeline.",
+      "evidence": [
+        {
+          "caveats": [],
+          "filters": {},
+          "method": "deterministic_python",
+          "query": null,
+          "record_ids": [],
+          "source": "analytics.engine",
+          "table": null
+        }
+      ],
+      "finding_id": "find-compensation-competitiveness",
+      "interpretation": "Salary band overruns pose budget risks; unclosed pending offers inflate apparent pipeline.",
+      "metric": null,
+      "observed_fact": "Identified 5 offer(s) violating salary bands and 5 stale pending offer(s) exceeding decision windows. Primary decline reasons: Role Scope (60%), Compensation (20%), Counter Offer (20%).",
+      "recommendation": "Audit out-of-band compensation packages and close stale pending offers as lost.",
+      "recommendations": [
+        "Audit out-of-band compensation packages and close stale pending offers as lost."
+      ],
+      "severity": "high",
+      "title": "Compensation Band Violations and Offer Aging"
+    },
+    {
+      "affected_records": [],
+      "category": "pipeline_velocity",
+      "caveats": [],
+      "confidence": "medium",
+      "description": "Cycle time differences highlight pipeline friction across acquisition channels.",
+      "evidence": [
+        {
+          "caveats": [],
+          "filters": {},
+          "method": "deterministic_python",
+          "query": null,
+          "record_ids": [],
+          "source": "analytics.engine",
+          "table": null
+        }
+      ],
+      "finding_id": "find-time-to-hire-velocity",
+      "interpretation": "Cycle time differences highlight pipeline friction across acquisition channels.",
+      "metric": null,
+      "observed_fact": "Average time-to-hire by source: Agency: 44d, Career Site: 52d, Job Board: 46d, LinkedIn: 49d, Referral: 47d.",
+      "recommendation": "Prioritize recruiting sources with faster cycle times to decrease candidate drop-off.",
+      "recommendations": [
+        "Prioritize recruiting sources with faster cycle times to decrease candidate drop-off."
+      ],
+      "severity": "low",
+      "title": "Time-to-Hire and Funnel Velocity by Source"
+    },
+    {
+      "affected_records": [],
+      "category": "headcount_planning",
+      "caveats": [],
+      "confidence": "high",
+      "description": "Progress against approved requisition headcount targets across business units.",
+      "evidence": [
+        {
+          "caveats": [],
+          "filters": {},
+          "method": "deterministic_python",
+          "query": null,
+          "record_ids": [],
+          "source": "analytics.engine",
+          "table": null
+        }
+      ],
+      "finding_id": "find-departmental-headcount-fill-rate",
+      "interpretation": "Progress against approved requisition headcount targets across business units.",
+      "metric": null,
+      "observed_fact": "Department headcount targets: 8 departments tracked; low-fill departments: DAT (0%), ENG (20%), MKT (0%), POP (33%).",
+      "recommendation": "Align requisition priorities with hiring manager availability in critical under-staffed departments.",
+      "recommendations": [
+        "Align requisition priorities with hiring manager availability in critical under-staffed departments."
+      ],
+      "severity": "medium",
+      "title": "Departmental Headcount Budget & Fill Rate"
+    }
+  ],
+  "quality_warnings": []
+}

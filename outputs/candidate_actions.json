@@ -1,0 +1,2702 @@
+[
+  {
+    "action": "escalate",
+    "application_id": "rec99nbtJnuFDJ8o4",
+    "candidate_id": "rec1MXRwKBzPq18Yt",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 126; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec99nbtJnuFDJ8o4"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 126 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recdcyUNM2DVT2kvg",
+    "candidate_id": "rec1hmfaOaXLyFOKD",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 77; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recdcyUNM2DVT2kvg"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 77 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recvkIW7Ssgj7kfaH",
+    "candidate_id": "rec1rUS9I2sq4lMK3",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 90; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recvkIW7Ssgj7kfaH"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 90 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rechPBXKbRBxHV4PX",
+    "candidate_id": "rec237RCQVkYLkBfS",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 275; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rechPBXKbRBxHV4PX"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 275 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec7IR5UBcva0pfuL",
+    "candidate_id": "rec2ONYxod19b5MWR",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 138; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec7IR5UBcva0pfuL"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 138 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recF3HTUcAmkceqBf",
+    "candidate_id": "rec2ONYxod19b5MWR",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 258; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recF3HTUcAmkceqBf"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 258 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recDzppijIxW9qre2",
+    "candidate_id": "rec2uTauvS9mr7DPc",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 92; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recDzppijIxW9qre2"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 92 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec1zfgxELX9LU4iO",
+    "candidate_id": "rec3XDakOUBHrEijf",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 184; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec1zfgxELX9LU4iO"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 184 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recmESKFerp0n1fTW",
+    "candidate_id": "rec54VD0UV9ZEHw4U",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 51; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recmESKFerp0n1fTW"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recFsCqkZJpbOHMZN",
+    "candidate_id": "rec6Q4llgClwMeBls",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 119; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recFsCqkZJpbOHMZN"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 119 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec8EYAE0xZGoJyAk",
+    "candidate_id": "rec72dpIfAnE7qnCI",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 393; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec8EYAE0xZGoJyAk"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 393 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rech98B0CMvnaeRwb",
+    "candidate_id": "rec7LQdOjD29mZIdc",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 128; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rech98B0CMvnaeRwb"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 128 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recswUJQ8wR5g3bml",
+    "candidate_id": "rec7LQdOjD29mZIdc",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 281; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recswUJQ8wR5g3bml"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 281 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recNSG2fFA4KUknr2",
+    "candidate_id": "rec9bkxf5lcSGetmr",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 103; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recNSG2fFA4KUknr2"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 103 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recTyfpBzlRZWv6dl",
+    "candidate_id": "recAAtq6dIcja1jsy",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 51; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recTyfpBzlRZWv6dl"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recGjCtuca0B2eiPY",
+    "candidate_id": "recBzmWUWsUOclWSH",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 228; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recGjCtuca0B2eiPY"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 228 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recgdeiMxRpUujkYw",
+    "candidate_id": "recCyEWJbGJCuIaLg",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 241; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recgdeiMxRpUujkYw"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 241 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec4WLPDZtlyMMZxm",
+    "candidate_id": "recDNgeKgf93DshUc",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 135; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec4WLPDZtlyMMZxm"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 135 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recJ7ODogLvZ1Jz9I",
+    "candidate_id": "recDs7CtmAKTV1vRs",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 74; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recJ7ODogLvZ1Jz9I"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 74 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recQyFqhHR0Kf1sSB",
+    "candidate_id": "recDwVrPzt0mwNFzJ",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 433; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recQyFqhHR0Kf1sSB"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 433 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recp50cFpuGMqvewG",
+    "candidate_id": "recFdYGpVDqAtXU0A",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 30; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recp50cFpuGMqvewG"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 30 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recPdzXcMapDbmxZt",
+    "candidate_id": "recFkFascZIALtjEl",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 111; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recPdzXcMapDbmxZt"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 111 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recIT1NyaY2b3xmJ4",
+    "candidate_id": "recFkGqYstNwhS0Iy",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 77; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recIT1NyaY2b3xmJ4"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 77 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recLZkaLOtsqNCvlo",
+    "candidate_id": "recIFRJdGRgkB6nbR",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 348; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recLZkaLOtsqNCvlo"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 348 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recembwWphhTglfU6",
+    "candidate_id": "recItbuThKAeHuOiP",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 30; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recembwWphhTglfU6"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 30 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recbOTUu97oe7rGcs",
+    "candidate_id": "recJmDaQHQ0VqOjpO",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 308; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recbOTUu97oe7rGcs"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 308 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recuNw9cQrMCGVNYR",
+    "candidate_id": "recKUadMZumnK58a2",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 58; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recuNw9cQrMCGVNYR"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 58 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recB3WDPS2xhj37rM",
+    "candidate_id": "recKW7BwqjUgQ7YvV",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 68; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recB3WDPS2xhj37rM"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 68 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recup8YTuqqaiOHln",
+    "candidate_id": "recKW7BwqjUgQ7YvV",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 350; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recup8YTuqqaiOHln"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 350 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recmmQQL330oqbUpK",
+    "candidate_id": "recKit5ecqU6Wmgmy",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 134; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recmmQQL330oqbUpK"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 134 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recZr6lJakXMsnZ5c",
+    "candidate_id": "recLTECqvLMERq8PX",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 196; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recZr6lJakXMsnZ5c"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 196 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recONB5KoTFdDSNvN",
+    "candidate_id": "recLkeHWkCbyT9XcL",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 369; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recONB5KoTFdDSNvN"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 369 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recBAHWFv7EkWbwKi",
+    "candidate_id": "recLn18g6JoYtO7uC",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 51; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recBAHWFv7EkWbwKi"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recEaw1WjbVqtFi7e",
+    "candidate_id": "recLoow4LXl1usogr",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 63; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recEaw1WjbVqtFi7e"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 63 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recmkRAPErWQtqxQQ",
+    "candidate_id": "recM7Ad1ywQXylydt",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 332; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recmkRAPErWQtqxQQ"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 332 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recoKMT0Lqq8gY7VY",
+    "candidate_id": "recNLkCeSgdACsG06",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 154; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recoKMT0Lqq8gY7VY"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 154 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recJ2Nn24G3Bq7S10",
+    "candidate_id": "recOdgIbzuuPG3yv4",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 366; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recJ2Nn24G3Bq7S10"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 366 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec2WcDPKrL5yHwte",
+    "candidate_id": "recR4q1SmeiFqWnZc",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 97; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec2WcDPKrL5yHwte"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 97 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recZsM5NgZAHdoMSU",
+    "candidate_id": "recREs9MqeSQ3DOK4",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 438; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recZsM5NgZAHdoMSU"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 438 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recSGu85kQdkCqQpk",
+    "candidate_id": "recREzdrV50ao6yFW",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 66; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recSGu85kQdkCqQpk"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 66 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recBjDHssQROE0iBz",
+    "candidate_id": "recRrEe0LfVZLfqqL",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 90; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recBjDHssQROE0iBz"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 90 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recmb9gU64xeFqAEb",
+    "candidate_id": "recSKzUUzzULI0ou9",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 84; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recmb9gU64xeFqAEb"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 84 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recrXCdqszVmxSPzA",
+    "candidate_id": "recT8iJ7j9ltJflMP",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 83; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recrXCdqszVmxSPzA"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 83 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recU29MhmPZc0nJMi",
+    "candidate_id": "recVOWq79fEjiyf1Q",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 292; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recU29MhmPZc0nJMi"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 292 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec5s79MoySl3r8XC",
+    "candidate_id": "recVTB1g4dVUe3uBO",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 66; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec5s79MoySl3r8XC"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 66 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recOsKIJ4my9HYcl8",
+    "candidate_id": "recVhynlKLvxOuWDJ",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 243; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recOsKIJ4my9HYcl8"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 243 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec8biTgySBOBL1gE",
+    "candidate_id": "recW5TQBakWDekr5W",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 130; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec8biTgySBOBL1gE"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 130 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recTKHo2RWws5QKDm",
+    "candidate_id": "recWBz108AEJmThBK",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 198; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recTKHo2RWws5QKDm"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 198 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recdqPCidqByX3bnF",
+    "candidate_id": "recWLnYnY4LrDePSG",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 93; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recdqPCidqByX3bnF"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 93 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recdO6o5IiJbue2Rt",
+    "candidate_id": "recWukvHASXrtjxjp",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 394; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recdO6o5IiJbue2Rt"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 394 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recAMPJEcn796J1IQ",
+    "candidate_id": "recX3t49GeOU34d3O",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 286; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recAMPJEcn796J1IQ"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 286 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recoAyOQnNa11VJrf",
+    "candidate_id": "recXfiScAT3LVt6UV",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 129; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recoAyOQnNa11VJrf"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 129 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec5tn6Hl1sDG8KR8",
+    "candidate_id": "recY8XDekrU1Y32yP",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 115; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec5tn6Hl1sDG8KR8"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 115 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recyvVQ8BHZJ6Y2mk",
+    "candidate_id": "recYcPG1H6xhxjnd2",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 417; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recyvVQ8BHZJ6Y2mk"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 417 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "reczk9DZKWPjcub7B",
+    "candidate_id": "recZIYJSmpBESo5jN",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 65; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "reczk9DZKWPjcub7B"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 65 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recFR2jWMv3rmsfRL",
+    "candidate_id": "recZol1q6YlB5MTev",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 117; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recFR2jWMv3rmsfRL"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 117 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recZGUhYTiklbwTJD",
+    "candidate_id": "recakUmq8lUxJZOVg",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 50; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recZGUhYTiklbwTJD"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 50 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recGXlow0MOZb5BM5",
+    "candidate_id": "recbrRiiFOdBQf0ia",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 117; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recGXlow0MOZb5BM5"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 117 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recHYhrvHVpElOnuA",
+    "candidate_id": "reccCtIoC5b0ym9FR",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 95; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recHYhrvHVpElOnuA"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 95 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recRYxVFKgFQ9Okfc",
+    "candidate_id": "reccG7l7T1jxMc09b",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 117; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recRYxVFKgFQ9Okfc"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 117 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec2g6PLMjHSI0Uuu",
+    "candidate_id": "recdSDRKuipEb9P5p",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 99; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec2g6PLMjHSI0Uuu"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 99 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recE1t7VtXE29eDZu",
+    "candidate_id": "recdrrZsX6yBujWhx",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 32; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recE1t7VtXE29eDZu"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 32 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recNIFsNuKYDFRCxy",
+    "candidate_id": "recez11FrlEk40JGJ",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 96; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recNIFsNuKYDFRCxy"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 96 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recKTsQsbSirnoMJx",
+    "candidate_id": "recf767ZGvqcOzqlh",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 78; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recKTsQsbSirnoMJx"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 78 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recp8HZq1M1EGh81M",
+    "candidate_id": "recfQ6uLOZzpD7LRi",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 122; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recp8HZq1M1EGh81M"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 122 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recq4TzkZZ8zFPRtF",
+    "candidate_id": "recgeHIWdCdNU9w8z",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 112; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recq4TzkZZ8zFPRtF"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 112 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recz37i6dfRE9aTq3",
+    "candidate_id": "recgm6WsXDE6kai3o",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 75; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recz37i6dfRE9aTq3"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 75 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recn5MBNAMMEsjVR1",
+    "candidate_id": "recgymUno5WByyfpw",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 61; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recn5MBNAMMEsjVR1"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 61 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec4jykqHfy0Auaat",
+    "candidate_id": "rechkEOP8SO6YAZwP",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 285; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec4jykqHfy0Auaat"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 285 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recsdrMYQpAFhhgpU",
+    "candidate_id": "rechkEOP8SO6YAZwP",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 51; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recsdrMYQpAFhhgpU"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recEiZkyx9yZVYtr5",
+    "candidate_id": "recjC9B0npOYnl6Fv",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 94; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recEiZkyx9yZVYtr5"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 94 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recWG5is3RsDwh3Kp",
+    "candidate_id": "recjiFf10TJC2GtFq",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 279; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recWG5is3RsDwh3Kp"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 279 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec6oQHMbuR5Sf7fB",
+    "candidate_id": "recjosACysnRAz9kx",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 309; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec6oQHMbuR5Sf7fB"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 309 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recKJbZSAQp8DjfPi",
+    "candidate_id": "reckPFZqMRfntniP1",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 81; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recKJbZSAQp8DjfPi"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 81 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recA7NwLpvsfT0c3X",
+    "candidate_id": "reckRKmre14sVycHD",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 80; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recA7NwLpvsfT0c3X"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 80 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recaZDsId1d7mILbR",
+    "candidate_id": "reckvLPj8fnNRs3zo",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 54; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recaZDsId1d7mILbR"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 54 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recGDSGZYcDeaAR5E",
+    "candidate_id": "recnG4bunlXa5I0s2",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 74; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recGDSGZYcDeaAR5E"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 74 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recL2eSRXXjnEUm8M",
+    "candidate_id": "recnNSWq7W8QFkW06",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 84; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recL2eSRXXjnEUm8M"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 84 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recTI4NGVQKZxC5Q6",
+    "candidate_id": "recnRKcf7Or1GcPEF",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 171; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recTI4NGVQKZxC5Q6"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 171 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recWAgFRRM1534nAv",
+    "candidate_id": "recnyPtt3ifnZaIze",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 107; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recWAgFRRM1534nAv"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 107 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec02eJ28BGG7NHOd",
+    "candidate_id": "recotonO4AWBKAuCE",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 34; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec02eJ28BGG7NHOd"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 34 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rec3OzF7CgaeqQO0A",
+    "candidate_id": "recpJXQzXLiVWnJHU",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 51; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec3OzF7CgaeqQO0A"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recqCWISdnOTxZ73U",
+    "candidate_id": "recpJXQzXLiVWnJHU",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 134; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recqCWISdnOTxZ73U"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 134 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recPI2dzgKvUeqk82",
+    "candidate_id": "recpNVUxMNB2X0iiP",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 48; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recPI2dzgKvUeqk82"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 48 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recUprPB3tJ6RFbCx",
+    "candidate_id": "recqECSuGzLxb0F5P",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 81; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recUprPB3tJ6RFbCx"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 81 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recVgYddXb9a1uHNu",
+    "candidate_id": "recqK4UMVxaWYFRl1",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 82; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recVgYddXb9a1uHNu"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 82 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recBxNxbc3C1AAW9C",
+    "candidate_id": "recqgXajW64OTDVp6",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 296; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recBxNxbc3C1AAW9C"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 296 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recdbtimetGjOPEwt",
+    "candidate_id": "recqgXajW64OTDVp6",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 373; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recdbtimetGjOPEwt"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 373 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recBb0pKCzxQ78I5T",
+    "candidate_id": "recrED1f8ADm6KRum",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 206; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recBb0pKCzxQ78I5T"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 206 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "rechmQPReJewhzPCC",
+    "candidate_id": "recs076MlIqStP9FQ",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 131; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rechmQPReJewhzPCC"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 131 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recmn8pmg3HiknMeK",
+    "candidate_id": "recsDmCI1I7xyCQve",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 40; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recmn8pmg3HiknMeK"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 40 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recBlTE59U869eOdM",
+    "candidate_id": "rectlS6DtLoFtEXbl",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 214; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recBlTE59U869eOdM"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 214 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recTHJEXBYN55ixy8",
+    "candidate_id": "rectlS6DtLoFtEXbl",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 140; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recTHJEXBYN55ixy8"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 140 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recm6OPVFgl8k24CW",
+    "candidate_id": "recuQQS15Jo3xrSFK",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 187; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recm6OPVFgl8k24CW"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 187 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recqeOfR55p2OT8Zy",
+    "candidate_id": "recwyGsLXtChYZFuy",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 90; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recqeOfR55p2OT8Zy"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 90 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "escalate",
+    "application_id": "recEmCov8W7uzo7wL",
+    "candidate_id": "reczd1OR5mG7CBIyt",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 255; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recEmCov8W7uzo7wL"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 255 days (>= 28 days threshold). Founder or talent lead escalation required.",
+    "requires_human_review": true
+  },
+  {
+    "action": "advance",
+    "application_id": "rechPBXKbRBxHV4PX",
+    "candidate_id": "rec237RCQVkYLkBfS",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Offer status: pending"
+        ],
+        "filters": {},
+        "method": "pending_offer_follow_up",
+        "query": null,
+        "record_ids": [
+          "recdo5OPtRshen2iA"
+        ],
+        "source": "airtable.offers",
+        "table": "Offers"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Formal offer recdo5OPtRshen2iA is in 'pending' status. Confirm candidate decision and advance onboarding.",
+    "requires_human_review": true
+  },
+  {
+    "action": "advance",
+    "application_id": "rech98B0CMvnaeRwb",
+    "candidate_id": "rec7LQdOjD29mZIdc",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Offer status: pending"
+        ],
+        "filters": {},
+        "method": "pending_offer_follow_up",
+        "query": null,
+        "record_ids": [
+          "recWTalm9YjLpK1cI"
+        ],
+        "source": "airtable.offers",
+        "table": "Offers"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Formal offer recWTalm9YjLpK1cI is in 'pending' status. Confirm candidate decision and advance onboarding.",
+    "requires_human_review": true
+  },
+  {
+    "action": "advance",
+    "application_id": "recswUJQ8wR5g3bml",
+    "candidate_id": "rec7LQdOjD29mZIdc",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Offer status: pending"
+        ],
+        "filters": {},
+        "method": "pending_offer_follow_up",
+        "query": null,
+        "record_ids": [
+          "rec2TF9eKlSg9xQg6"
+        ],
+        "source": "airtable.offers",
+        "table": "Offers"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Formal offer rec2TF9eKlSg9xQg6 is in 'pending' status. Confirm candidate decision and advance onboarding.",
+    "requires_human_review": true
+  },
+  {
+    "action": "advance",
+    "application_id": "recbOTUu97oe7rGcs",
+    "candidate_id": "recJmDaQHQ0VqOjpO",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Offer status: pending"
+        ],
+        "filters": {},
+        "method": "pending_offer_follow_up",
+        "query": null,
+        "record_ids": [
+          "recs1Jiwz7YshxyIL"
+        ],
+        "source": "airtable.offers",
+        "table": "Offers"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Formal offer recs1Jiwz7YshxyIL is in 'pending' status. Confirm candidate decision and advance onboarding.",
+    "requires_human_review": true
+  },
+  {
+    "action": "advance",
+    "application_id": "recmb9gU64xeFqAEb",
+    "candidate_id": "recSKzUUzzULI0ou9",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Offer status: pending"
+        ],
+        "filters": {},
+        "method": "pending_offer_follow_up",
+        "query": null,
+        "record_ids": [
+          "recoO05BwhJFXxkoc"
+        ],
+        "source": "airtable.offers",
+        "table": "Offers"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Formal offer recoO05BwhJFXxkoc is in 'pending' status. Confirm candidate decision and advance onboarding.",
+    "requires_human_review": true
+  },
+  {
+    "action": "review",
+    "application_id": "recxVB8SWzbnAnq8U",
+    "candidate_id": "rec3NCtlr82rF9BeT",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 23; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recxVB8SWzbnAnq8U"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 23 days (>= 14 days threshold). Hiring manager review recommended.",
+    "requires_human_review": true
+  },
+  {
+    "action": "review",
+    "application_id": "rec7cb2WglX99Sscp",
+    "candidate_id": "rec7fQTBfnulCrHov",
+    "caveats": [],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 16; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec7cb2WglX99Sscp"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 16 days (>= 14 days threshold). Hiring manager review recommended.",
+    "requires_human_review": true
+  },
+  {
+    "action": "review",
+    "application_id": "recBfNHuUvGpdx7Bl",
+    "candidate_id": "recDAS27PGHKYk5Np",
+    "caveats": [],
+    "confidence": "high",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 26; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recBfNHuUvGpdx7Bl"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 26 days (>= 14 days threshold). Hiring manager review recommended.",
+    "requires_human_review": true
+  },
+  {
+    "action": "review",
+    "application_id": "rec959Duu6N8Mxuc8",
+    "candidate_id": "recVhynlKLvxOuWDJ",
+    "caveats": [],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 16; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec959Duu6N8Mxuc8"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 16 days (>= 14 days threshold). Hiring manager review recommended.",
+    "requires_human_review": true
+  },
+  {
+    "action": "review",
+    "application_id": "recXsExBlwzoYosWe",
+    "candidate_id": "recayha9Fwa1ucbaP",
+    "caveats": [],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 20; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recXsExBlwzoYosWe"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 20 days (>= 14 days threshold). Hiring manager review recommended.",
+    "requires_human_review": true
+  },
+  {
+    "action": "review",
+    "application_id": "recfAsDKz3GuTyYN7",
+    "candidate_id": "recxtoFya1C52rPvU",
+    "caveats": [],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 15; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "recfAsDKz3GuTyYN7"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 15 days (>= 14 days threshold). Hiring manager review recommended.",
+    "requires_human_review": true
+  },
+  {
+    "action": "review",
+    "application_id": "rec4u0qBA6qThFt4y",
+    "candidate_id": "recy7HAMx3AZIHj8D",
+    "caveats": [],
+    "confidence": "medium",
+    "evidence": [
+      {
+        "caveats": [
+          "Days stalled: 15; stage: active"
+        ],
+        "filters": {},
+        "method": "stalled_application_check",
+        "query": null,
+        "record_ids": [
+          "rec4u0qBA6qThFt4y"
+        ],
+        "source": "analytics.stalled_applications",
+        "table": "Applications"
+      }
+    ],
+    "human_review_note": "Advisory only: a founder or hiring manager must conduct human review before action.",
+    "rationale": "Application has stalled in 'active' stage for 15 days (>= 14 days threshold). Hiring manager review recommended.",
+    "requires_human_review": true
+  }
+]

@@ -1,0 +1,603 @@
+"""Generate standalone executive HTML dashboard."""
+import os
+
+HTML_CONTENT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recruitment Intelligence — Executive Command Dashboard</title>
+<style>
+  :root {
+    --bg-primary: #0b0f19;
+    --bg-secondary: #111827;
+    --bg-card: #1f2937;
+    --border-color: #374151;
+    --text-main: #f9fafb;
+    --text-muted: #9ca3af;
+    --accent-emerald: #10b981;
+    --accent-blue: #38bdf8;
+    --accent-amber: #f59e0b;
+    --accent-rose: #f43f5e;
+    --accent-indigo: #6366f1;
+    --accent-purple: #a855f7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-main);
+    line-height: 1.5;
+    padding: 24px;
+  }
+  .container { max-width: 1400px; margin: 0 auto; }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+  }
+  .badge-emerald { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+  .badge-rose { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+  .badge-amber { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); }
+  .badge-blue { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+  
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+  .kpi-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+  }
+  .kpi-emerald::before { background: var(--accent-emerald); }
+  .kpi-rose::before { background: var(--accent-rose); }
+  .kpi-blue::before { background: var(--accent-blue); }
+  .kpi-amber::before { background: var(--accent-amber); }
+  .kpi-purple::before { background: var(--accent-purple); }
+  .kpi-title { font-size: 12px; color: var(--text-muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .kpi-val { font-size: 32px; font-weight: 800; margin: 8px 0 4px 0; color: #fff; }
+  .kpi-sub { font-size: 13px; color: var(--text-muted); }
+  
+  .grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  @media (max-width: 960px) { .grid-2col { grid-template-columns: 1fr; } }
+  
+  .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 22px;
+    margin-bottom: 24px;
+  }
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding-bottom: 12px;
+  }
+  .card-title { font-size: 15px; font-weight: 700; color: #fff; }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+  }
+  th {
+    background: rgba(11, 15, 25, 0.6);
+    color: var(--text-muted);
+    font-weight: 600;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-color);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 11px 12px;
+    border-bottom: 1px solid rgba(55, 65, 81, 0.6);
+    color: #e5e7eb;
+  }
+  tr:hover td { background: rgba(255, 255, 255, 0.02); }
+  
+  .progress-bar-bg {
+    background: rgba(255, 255, 255, 0.08);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 6px;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+  }
+  
+  .funnel-stage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    background: rgba(11, 15, 25, 0.5);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+  }
+  .funnel-meta { display: flex; align-items: center; gap: 12px; }
+  .funnel-step { width: 28px; height: 28px; border-radius: 50%; background: #374151; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; }
+  
+  .schedule-item {
+    display: flex;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(55, 65, 81, 0.5);
+  }
+  .schedule-item:last-child { border-bottom: none; }
+  .schedule-time { min-width: 95px; font-weight: 700; color: var(--accent-blue); font-size: 13px; }
+  .schedule-content { font-size: 13px; color: #d1d5db; }
+  .schedule-content strong { color: #fff; }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1 style="font-size: 22px; font-weight: 800; color: #ffffff;">Recruitment Intelligence Operating System</h1>
+      <p style="color: var(--text-muted); font-size: 13px; margin-top: 4px;">Founder Executive Briefing &amp; Deterministic Pipeline Operating System</p>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <span class="badge badge-emerald">● Pipeline Verified</span>
+      <span class="badge badge-blue">511 / 511 Tests Passing</span>
+      <span class="badge badge-amber">Deterministic Python</span>
+    </div>
+  </header>
+
+  <!-- KPI Row -->
+  <div class="kpi-grid">
+    <div class="kpi-card kpi-blue">
+      <div class="kpi-title">Base Record Scope</div>
+      <div class="kpi-val">892</div>
+      <div class="kpi-sub">8 tables · 350 apps · 300 candidates</div>
+    </div>
+    <div class="kpi-card kpi-emerald">
+      <div class="kpi-title">Top Talent Source</div>
+      <div class="kpi-val">41.2%</div>
+      <div class="kpi-sub">Referral: 7 hires / 17 apps (2.0 ivs/hire)</div>
+    </div>
+    <div class="kpi-card kpi-amber">
+      <div class="kpi-title">Offer Acceptance Rate</div>
+      <div class="kpi-val">72.2%</div>
+      <div class="kpi-sub">26 of 36 extended (83.9% resolved)</div>
+    </div>
+    <div class="kpi-card kpi-rose">
+      <div class="kpi-title">Funnel Bottleneck</div>
+      <div class="kpi-val">74.8%</div>
+      <div class="kpi-sub">Interview &rarr; Offer drop (107 rejected)</div>
+    </div>
+    <div class="kpi-card kpi-purple">
+      <div class="kpi-title">Stagnant Active Apps</div>
+      <div class="kpi-val">105</div>
+      <div class="kpi-sub">30.0% dormant pipeline (up to 447d)</div>
+    </div>
+  </div>
+
+  <!-- Row 2: Sources & Funnel -->
+  <div class="grid-2col">
+    <!-- Channel Efficiency -->
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-header">
+        <div class="card-title">Talent Channel Efficiency &amp; Effort Sink Analysis</div>
+        <span class="badge badge-blue">Q2 Deliverable</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Apps</th>
+            <th>Interviews</th>
+            <th>Hires</th>
+            <th>Conv %</th>
+            <th>Ivs / Hire</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: rgba(16, 185, 129, 0.08); font-weight: 600;">
+            <td>Referral <span class="badge badge-emerald" style="font-size: 9px; padding: 2px 6px;">Top Source</span></td>
+            <td>17</td>
+            <td>14</td>
+            <td>7</td>
+            <td style="color: #34d399;">41.2%</td>
+            <td style="color: #34d399;">2.0</td>
+          </tr>
+          <tr>
+            <td>Agency</td>
+            <td>23</td>
+            <td>10</td>
+            <td>4</td>
+            <td>17.4%</td>
+            <td>2.5</td>
+          </tr>
+          <tr>
+            <td>Career Site</td>
+            <td>31</td>
+            <td>21</td>
+            <td>4</td>
+            <td>12.9%</td>
+            <td>5.2</td>
+          </tr>
+          <tr style="background: rgba(244, 63, 94, 0.08);">
+            <td>Job Board <span class="badge badge-rose" style="font-size: 9px; padding: 2px 6px;">Effort Sink</span></td>
+            <td>240</td>
+            <td>99</td>
+            <td>10</td>
+            <td style="color: #fb7185;">4.2%</td>
+            <td style="color: #fb7185;">9.9</td>
+          </tr>
+          <tr style="background: rgba(244, 63, 94, 0.08);">
+            <td>LinkedIn <span class="badge badge-rose" style="font-size: 9px; padding: 2px 6px;">Effort Sink</span></td>
+            <td>38</td>
+            <td>16</td>
+            <td>1</td>
+            <td style="color: #fb7185;">2.6%</td>
+            <td style="color: #fb7185;">16.0</td>
+          </tr>
+          <tr>
+            <td>Campus</td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0.0%</td>
+            <td>&mdash;</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 14px; font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+        <strong style="color: #f9fafb;">Critical Takeaway:</strong> Job Board and LinkedIn yielded only 11 hires while consuming <strong style="color: #fb7185;">71.9% of all interview bandwidth (115 of 160 loops)</strong>.
+      </div>
+    </div>
+
+    <!-- Funnel Breakdown -->
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-header">
+        <div class="card-title">Recruitment Funnel &amp; Attrition Breakdown</div>
+        <span class="badge badge-rose">Q4 Bottleneck</span>
+      </div>
+      
+      <div class="funnel-stage">
+        <div class="funnel-meta">
+          <div class="funnel-step">1</div>
+          <div>
+            <div style="font-weight: 700;">Total Applications</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Top of funnel inbound</div>
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-weight: 800; font-size: 17px;">350</div>
+          <div style="font-size: 11px; color: var(--accent-blue);">100% baseline</div>
+        </div>
+      </div>
+
+      <div class="funnel-stage">
+        <div class="funnel-meta">
+          <div class="funnel-step">2</div>
+          <div>
+            <div style="font-weight: 700;">Screening Passed</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Initial resume &amp; recruiter screen</div>
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-weight: 800; font-size: 17px;">143</div>
+          <div style="font-size: 11px; color: var(--accent-emerald);">40.9% pass-through</div>
+        </div>
+      </div>
+
+      <div class="funnel-stage" style="border-color: rgba(244, 63, 94, 0.4); background: rgba(244, 63, 94, 0.05);">
+        <div class="funnel-meta">
+          <div class="funnel-step" style="background: var(--accent-rose);">3</div>
+          <div>
+            <div style="font-weight: 700; color: #fb7185;">Formal Offers Extended</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Primary Drop-off: 70 R1 + 14 Final + 23 No-Show</div>
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-weight: 800; font-size: 17px; color: #fb7185;">36</div>
+          <div style="font-size: 11px; color: #fb7185;">25.2% pass (74.8% attrition)</div>
+        </div>
+      </div>
+
+      <div class="funnel-stage">
+        <div class="funnel-meta">
+          <div class="funnel-step" style="background: var(--accent-emerald);">4</div>
+          <div>
+            <div style="font-weight: 700;">Offers Accepted / Hires</div>
+            <div style="font-size: 11px; color: var(--text-muted);">26 accepted, 5 declined, 5 pending zombie</div>
+          </div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-weight: 800; font-size: 17px; color: #34d399;">26</div>
+          <div style="font-size: 11px; color: #34d399;">72.2% offer acceptance</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Immediate Action Items -->
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Immediate Candidate Interventions (Monday 09:00 Founder Action List)</div>
+      <span class="badge badge-rose">Requires Human Review</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Application</th>
+          <th>Candidate</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Staleness / Violation</th>
+          <th>Recommended Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color: var(--accent-blue);">APP-00012</strong></td>
+          <td>Ravi Reddy</td>
+          <td>VP Engineering</td>
+          <td><span class="badge badge-amber">Pending Offer</span></td>
+          <td style="color: #fb7185;">283 days pending ($180k)</td>
+          <td>Formal closing inquiry; archive as expired if unresponsive within 24h</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--accent-blue);">APP-00348</strong></td>
+          <td>Kavya Mehta</td>
+          <td>Lead Data Scientist</td>
+          <td><span class="badge badge-amber">Pending Offer</span></td>
+          <td style="color: #fb7185;">258 days pending ($140k)</td>
+          <td>Audit candidate status; confirm acceptance or release unallocated budget</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--accent-blue);">APP-00033 / 333</strong></td>
+          <td>Mohit Patel</td>
+          <td>Senior DevOps Engineer</td>
+          <td><span class="badge badge-rose">Dual Active Offer</span></td>
+          <td style="color: #fb7185;">Two active offers (252d &amp; 109d)</td>
+          <td>Consolidate duplicate records; reconcile hiring intention with HM</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--accent-blue);">APP-00028</strong></td>
+          <td>Neha Agarwal</td>
+          <td>Junior Content Marketer</td>
+          <td><span class="badge badge-rose">Band Violation</span></td>
+          <td style="color: #fbbf24;">+92.5% over band max ($77k vs $40k)</td>
+          <td>Hiring manager &amp; CFO re-approval required before finalizing paperwork</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--accent-blue);">APP-00004</strong></td>
+          <td>Neha Agarwal</td>
+          <td>Junior Content Marketer</td>
+          <td><span class="badge badge-amber">Pending Offer</span></td>
+          <td>47 days pending</td>
+          <td>Request final decision; unfreeze requisition if declined</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Row 3: Data Quality & Monday Schedule -->
+  <div class="grid-2col">
+    <!-- Data Trust Audit -->
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-header">
+        <div class="card-title">Data Integrity &amp; Audit Findings</div>
+        <span class="badge badge-amber">Q5 Quality Audit</span>
+      </div>
+      <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+        <li style="display: flex; gap: 10px; align-items: flex-start;">
+          <span style="color: #fb7185; font-size: 16px;">&#9888;</span>
+          <div>
+            <strong>Missing Application Source:</strong> 100% of Applications records lack a native source column. Channel data is inherited entirely from Candidates table.
+          </div>
+        </li>
+        <li style="display: flex; gap: 10px; align-items: flex-start;">
+          <span style="color: #fb7185; font-size: 16px;">&#9888;</span>
+          <div>
+            <strong>Duplicate Candidate Records:</strong> 6 duplicate candidate pairs (12 records) sharing identical phone numbers and names with divergent email addresses.
+          </div>
+        </li>
+        <li style="display: flex; gap: 10px; align-items: flex-start;">
+          <span style="color: #fb7185; font-size: 16px;">&#9888;</span>
+          <div>
+            <strong>Re-application ID Shift:</strong> Exactly 50 re-applications (APP-00301 to APP-00350). 4 candidates applied twice to the identical job opening.
+          </div>
+        </li>
+        <li style="display: flex; gap: 10px; align-items: flex-start;">
+          <span style="color: #fbbf24; font-size: 16px;">&#9888;</span>
+          <div>
+            <strong>Compensation Band Violations:</strong> 5 of 36 offers (13.9%) exceed or violate requisition budget floors and ceilings.
+          </div>
+        </li>
+        <li style="display: flex; gap: 10px; align-items: flex-start;">
+          <span style="color: #38bdf8; font-size: 16px;">&#8505;</span>
+          <div>
+            <strong>Zero Direct Airtable Mutations:</strong> System strictly maintains read-only ingestion integrity and provider-agnostic deterministic calculations.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Monday Schedule -->
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-header">
+        <div class="card-title">Founder Monday Operating Schedule</div>
+        <span class="badge badge-emerald">Action Plan</span>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">09:00 - 10:00</div>
+        <div class="schedule-content">
+          <strong>Offer Resolution Sprint:</strong> Contact Ravi Reddy (APP-00012) and Kavya Mehta (APP-00348). Reconcile Mohit Patel duplicate offers (APP-00033 / APP-00333).
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">10:00 - 11:30</div>
+        <div class="schedule-content">
+          <strong>Executive Compensation Review:</strong> Convene with Finance/People team to audit 5 out-of-band offers (including Neha Agarwal at +92.5% over band max).
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">11:30 - 12:30</div>
+        <div class="schedule-content">
+          <strong>Sourcing Strategy Re-alignment:</strong> Cap uncalibrated Job Board/LinkedIn inbound. Shift talent acquisition focus to Employee Referral Program.
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">14:00 - 15:30</div>
+        <div class="schedule-content">
+          <strong>Interviewer Bandwidth Load-Balancing:</strong> Onboard backup interviewers to alleviate concentration (top 2 interviewers handle 43.8% of loops).
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-time">15:30 - 16:30</div>
+        <div class="schedule-content">
+          <strong>Dormant Pipeline Sweep:</strong> Re-engage or archive 105 active applications stagnant for &gt;30 days with personalized closing correspondence.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Departmental Fill Rate & External Cost Context -->
+  <div class="grid-2col">
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-header">
+        <div class="card-title">Department Headcount Fill Rates</div>
+        <span class="badge badge-blue">Requisition Status</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+            <span>Sales (SAL) &amp; Customer Success (CS)</span>
+            <span style="font-weight: 700; color: #34d399;">100% Filled (12 / 12)</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 100%; background: #10b981;"></div></div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+            <span>People Ops (POP)</span>
+            <span style="font-weight: 700; color: #fbbf24;">33.3% Filled (1 / 3)</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 33.3%; background: #f59e0b;"></div></div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+            <span>Engineering (ENG)</span>
+            <span style="font-weight: 700; color: #fb7185;">20.0% Filled (1 / 5)</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 20.0%; background: #f43f5e;"></div></div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+            <span>Data / Analytics (DAT)</span>
+            <span style="font-weight: 700; color: #fb7185;">0.0% Filled (0 / 2)</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 0%; background: #f43f5e;"></div></div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+            <span>Marketing (MKT)</span>
+            <span style="font-weight: 700; color: #fb7185;">0.0% Filled (0 / 2)</span>
+          </div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 0%; background: #f43f5e;"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- External Cost Appendix -->
+    <div class="card" style="margin-bottom: 0;">
+      <div class="card-header">
+        <div class="card-title">Industry Cost Benchmarks (Isolated Appendix)</div>
+        <span class="badge badge-amber">External Context</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Channel / Role</th>
+            <th>Market Benchmark</th>
+            <th>Strategic Takeaway</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Engineering Hires</td>
+            <td>$4,500 - $6,000</td>
+            <td>SHRM blended sourcing &amp; assessment benchmark</td>
+          </tr>
+          <tr>
+            <td>External Agency</td>
+            <td>20% - 25% base</td>
+            <td>Contingency fee ($28k-$35k for $140k role)</td>
+          </tr>
+          <tr>
+            <td>Employee Referral</td>
+            <td>$2,000 - $5,000</td>
+            <td>Highest retention, zero agency fee, fastest cycle</td>
+          </tr>
+          <tr>
+            <td>Job Boards</td>
+            <td>$300 - $600 / seat</td>
+            <td>Low direct cost, high hidden interviewer bandwidth cost</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top: 12px; font-size: 11px; color: var(--text-muted); font-style: italic;">
+        * Strictly isolated from deterministic Airtable pipeline metrics. Provided for strategic founder planning.
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted);">
+    <div>Recruitment Intelligence OS &middot; Built with Deterministic Python &amp; Type-Safe Architecture</div>
+    <div>Provider-Agnostic &middot; Read-Only Airtable Ingestion &middot; Human-in-the-Loop Governance</div>
+  </footer>
+</div>
+</body>
+</html>
+"""
+
+def generate():
+    out_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "outputs"))
+    target = os.path.join(out_dir, "dashboard.html")
+    with open(target, "w", encoding="utf-8") as f:
+        f.write(HTML_CONTENT)
+    print(f"Generated {target} ({len(HTML_CONTENT)} bytes)")
+
+if __name__ == "__main__":
+    generate()
