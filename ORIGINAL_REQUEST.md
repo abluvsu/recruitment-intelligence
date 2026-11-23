@@ -92,3 +92,43 @@ Integrity mode: development
 - [ ] Zero API keys, credentials, or secrets in version control or output logs.
 </USER_REQUEST>
 
+
+
+## Follow-up — 2026-11-23T12:10:47Z
+
+<USER_REQUEST>
+Execute an end-to-end system audit and deliverables verification of the Recruitment Intelligence Operating System, ensuring strict contract compliance, offline pipeline reproducibility, and zero data/secret leaks.
+
+Working directory: D:\myoperator
+Integrity mode: development
+
+## Requirements
+
+### R1. Test Suite & Codebase Integrity Verification
+Verify bytecode compilation and execute the entire test suite across all 5 tiers (domain, ingestion, analytics, quality, agents, and outputs).
+
+### R2. Offline End-to-End Pipeline Execution
+Run the end-to-end recruitment intelligence pipeline offline using cached snapshot data (`data/raw/airtable_snapshot.json`) to generate fresh audit artifacts and ensure deterministic execution.
+
+### R3. Quality, Contracts & Evidence Audit
+Audit the generated executive briefing, findings memo, and candidate recommendations against core business questions (Q1–Q5), verifying that every metric claim is backed by structured evidence references and that candidate actions require human review.
+
+### R4. Security & Boundary Guardrails Check
+Verify that `.env` and sensitive credentials remain untracked and excluded, read-only boundaries are enforced, and no LLM is invoked during core deterministic analytics.
+
+## Acceptance Criteria
+
+### Automated Testing & Compilation
+- [ ] `python -m compileall src tests` succeeds with exit code 0.
+- [ ] `python -m pytest -q` passes all tests with zero failures or errors.
+
+### Offline Pipeline Execution
+- [ ] Offline pipeline runs to completion without network dependencies.
+- [ ] Verified valid outputs generated: `briefing.md`, `briefing.html`, `briefing.json`, `candidate_actions.json`, `findings.json`, and `findings_table.csv`.
+
+### Evidence & Integrity Validation
+- [ ] All computed metric claims (Q1–Q4) contain valid `EvidenceReference` blocks with non-empty record IDs or valid fallbacks.
+- [ ] All candidate action recommendations strictly conform to allowed actions (`review`, `advance`, `escalate`, `request feedback`, `close`) and enforce `requires_human_review = True`.
+- [ ] No secrets or API credentials appear in logs, outputs, or git status.
+- [ ] Comprehensive summary audit report produced in `outputs/audit_verification_report.md`.
+</USER_REQUEST>

@@ -1,5 +1,5 @@
 {
-  "briefing_id": "briefing-20260902",
+  "briefing_id": "briefing-20261123-131827",
   "candidate_actions": [
     {
       "action": "escalate",
@@ -10,7 +10,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 126; stage: active"
+            "Days stalled: 208; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -22,7 +22,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 126 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 208 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -34,7 +34,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 77; stage: active"
+            "Days stalled: 159; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -46,7 +46,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 77 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 159 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -58,7 +58,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 90; stage: active"
+            "Days stalled: 172; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -70,7 +70,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 90 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 172 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -82,7 +82,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 275; stage: active"
+            "Days stalled: 357; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -94,7 +94,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 275 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 357 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -106,7 +106,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 138; stage: active"
+            "Days stalled: 220; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -118,7 +118,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 138 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 220 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -130,7 +130,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 258; stage: active"
+            "Days stalled: 340; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -142,7 +142,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 258 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 340 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -154,7 +154,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 92; stage: active"
+            "Days stalled: 174; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -166,7 +166,31 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 92 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 174 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "recxVB8SWzbnAnq8U",
+      "candidate_id": "rec3NCtlr82rF9BeT",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 105; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "recxVB8SWzbnAnq8U"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 105 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -178,7 +202,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 184; stage: active"
+            "Days stalled: 266; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -190,7 +214,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 184 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 266 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -202,7 +226,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 51; stage: active"
+            "Days stalled: 133; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -214,7 +238,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 133 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -226,7 +250,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 119; stage: active"
+            "Days stalled: 201; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -238,7 +262,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 119 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 201 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -250,7 +274,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 393; stage: active"
+            "Days stalled: 475; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -262,7 +286,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 393 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 475 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -274,7 +298,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 128; stage: active"
+            "Days stalled: 210; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -286,7 +310,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 128 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 210 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -298,7 +322,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 281; stage: active"
+            "Days stalled: 363; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -310,7 +334,31 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 281 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 363 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "rec7cb2WglX99Sscp",
+      "candidate_id": "rec7fQTBfnulCrHov",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 98; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "rec7cb2WglX99Sscp"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 98 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -322,7 +370,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 103; stage: active"
+            "Days stalled: 185; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -334,7 +382,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 103 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 185 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -346,7 +394,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 51; stage: active"
+            "Days stalled: 133; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -358,7 +406,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 133 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -370,7 +418,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 228; stage: active"
+            "Days stalled: 310; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -382,7 +430,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 228 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 310 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -394,7 +442,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 241; stage: active"
+            "Days stalled: 323; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -406,7 +454,31 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 241 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 323 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "recBfNHuUvGpdx7Bl",
+      "candidate_id": "recDAS27PGHKYk5Np",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 108; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "recBfNHuUvGpdx7Bl"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 108 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -418,7 +490,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 135; stage: active"
+            "Days stalled: 217; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -430,7 +502,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 135 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 217 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -442,7 +514,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 74; stage: active"
+            "Days stalled: 156; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -454,7 +526,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 74 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 156 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -466,7 +538,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 433; stage: active"
+            "Days stalled: 515; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -478,7 +550,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 433 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 515 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -490,7 +562,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 30; stage: active"
+            "Days stalled: 112; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -502,7 +574,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 30 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 112 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -514,7 +586,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 111; stage: active"
+            "Days stalled: 193; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -526,7 +598,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 111 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 193 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -538,7 +610,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 77; stage: active"
+            "Days stalled: 159; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -550,7 +622,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 77 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 159 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -562,7 +634,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 348; stage: active"
+            "Days stalled: 430; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -574,7 +646,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 348 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 430 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -586,7 +658,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 30; stage: active"
+            "Days stalled: 112; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -598,7 +670,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 30 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 112 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -610,7 +682,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 308; stage: active"
+            "Days stalled: 390; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -622,7 +694,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 308 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 390 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -634,7 +706,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 58; stage: active"
+            "Days stalled: 140; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -646,7 +718,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 58 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 140 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -658,7 +730,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 68; stage: active"
+            "Days stalled: 150; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -670,7 +742,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 68 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 150 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -682,7 +754,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 350; stage: active"
+            "Days stalled: 432; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -694,7 +766,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 350 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 432 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -706,7 +778,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 134; stage: active"
+            "Days stalled: 216; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -718,7 +790,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 134 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 216 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -730,7 +802,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 196; stage: active"
+            "Days stalled: 278; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -742,7 +814,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 196 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 278 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -754,7 +826,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 369; stage: active"
+            "Days stalled: 451; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -766,7 +838,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 369 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 451 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -778,7 +850,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 51; stage: active"
+            "Days stalled: 133; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -790,7 +862,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 133 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -802,7 +874,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 63; stage: active"
+            "Days stalled: 145; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -814,7 +886,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 63 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 145 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -826,7 +898,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 332; stage: active"
+            "Days stalled: 414; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -838,7 +910,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 332 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 414 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -850,7 +922,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 154; stage: active"
+            "Days stalled: 236; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -862,7 +934,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 154 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 236 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -874,7 +946,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 366; stage: active"
+            "Days stalled: 448; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -886,7 +958,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 366 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 448 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -898,7 +970,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 97; stage: active"
+            "Days stalled: 179; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -910,7 +982,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 97 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 179 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -922,7 +994,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 438; stage: active"
+            "Days stalled: 520; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -934,7 +1006,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 438 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 520 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -946,7 +1018,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 66; stage: active"
+            "Days stalled: 148; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -958,7 +1030,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 66 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 148 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -970,7 +1042,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 90; stage: active"
+            "Days stalled: 172; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -982,7 +1054,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 90 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 172 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -994,7 +1066,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 84; stage: active"
+            "Days stalled: 166; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1006,7 +1078,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 84 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 166 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1018,7 +1090,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 83; stage: active"
+            "Days stalled: 165; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1030,7 +1102,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 83 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 165 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1042,7 +1114,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 292; stage: active"
+            "Days stalled: 374; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1054,7 +1126,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 292 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 374 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1066,7 +1138,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 66; stage: active"
+            "Days stalled: 148; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1078,7 +1150,31 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 66 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 148 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "rec959Duu6N8Mxuc8",
+      "candidate_id": "recVhynlKLvxOuWDJ",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 98; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "rec959Duu6N8Mxuc8"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 98 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1090,7 +1186,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 243; stage: active"
+            "Days stalled: 325; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1102,7 +1198,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 243 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 325 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1114,7 +1210,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 130; stage: active"
+            "Days stalled: 212; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1126,7 +1222,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 130 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 212 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1138,7 +1234,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 198; stage: active"
+            "Days stalled: 280; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1150,7 +1246,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 198 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 280 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1162,7 +1258,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 93; stage: active"
+            "Days stalled: 175; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1174,7 +1270,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 93 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 175 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1186,7 +1282,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 394; stage: active"
+            "Days stalled: 476; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1198,7 +1294,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 394 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 476 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1210,7 +1306,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 286; stage: active"
+            "Days stalled: 368; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1222,7 +1318,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 286 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 368 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1234,7 +1330,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 129; stage: active"
+            "Days stalled: 211; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1246,7 +1342,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 129 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 211 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1258,7 +1354,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 115; stage: active"
+            "Days stalled: 197; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1270,7 +1366,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 115 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 197 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1282,7 +1378,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 417; stage: active"
+            "Days stalled: 499; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1294,7 +1390,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 417 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 499 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1306,7 +1402,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 65; stage: active"
+            "Days stalled: 147; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1318,7 +1414,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 65 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 147 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1330,7 +1426,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 117; stage: active"
+            "Days stalled: 199; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1342,7 +1438,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 117 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 199 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1354,7 +1450,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 50; stage: active"
+            "Days stalled: 132; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1366,7 +1462,31 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 50 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 132 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "recXsExBlwzoYosWe",
+      "candidate_id": "recayha9Fwa1ucbaP",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 102; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "recXsExBlwzoYosWe"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 102 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1378,7 +1498,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 117; stage: active"
+            "Days stalled: 199; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1390,7 +1510,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 117 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 199 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1402,7 +1522,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 95; stage: active"
+            "Days stalled: 177; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1414,7 +1534,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 95 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 177 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1426,7 +1546,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 117; stage: active"
+            "Days stalled: 199; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1438,7 +1558,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 117 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 199 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1450,7 +1570,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 99; stage: active"
+            "Days stalled: 181; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1462,7 +1582,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 99 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 181 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1474,7 +1594,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 32; stage: active"
+            "Days stalled: 114; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1486,7 +1606,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 32 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 114 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1498,7 +1618,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 96; stage: active"
+            "Days stalled: 178; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1510,7 +1630,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 96 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 178 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1522,7 +1642,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 78; stage: active"
+            "Days stalled: 160; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1534,7 +1654,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 78 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 160 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1546,7 +1666,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 122; stage: active"
+            "Days stalled: 204; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1558,7 +1678,31 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 122 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 204 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "recRyX94LN7ptf0Fq",
+      "candidate_id": "recg2w3EgC1z67IRR",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 87; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "recRyX94LN7ptf0Fq"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 87 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1570,7 +1714,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 112; stage: active"
+            "Days stalled: 194; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1582,7 +1726,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 112 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 194 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1594,7 +1738,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 75; stage: active"
+            "Days stalled: 157; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1606,7 +1750,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 75 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 157 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1618,7 +1762,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 61; stage: active"
+            "Days stalled: 143; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1630,7 +1774,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 61 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 143 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1642,7 +1786,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 285; stage: active"
+            "Days stalled: 367; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1654,7 +1798,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 285 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 367 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1666,7 +1810,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 51; stage: active"
+            "Days stalled: 133; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1678,7 +1822,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 133 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1690,7 +1834,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 94; stage: active"
+            "Days stalled: 176; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1702,7 +1846,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 94 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 176 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1714,7 +1858,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 279; stage: active"
+            "Days stalled: 361; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1726,7 +1870,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 279 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 361 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1738,7 +1882,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 309; stage: active"
+            "Days stalled: 391; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1750,7 +1894,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 309 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 391 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1762,7 +1906,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 81; stage: active"
+            "Days stalled: 163; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1774,7 +1918,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 81 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 163 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1786,7 +1930,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 80; stage: active"
+            "Days stalled: 162; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1798,7 +1942,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 80 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 162 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1810,7 +1954,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 54; stage: active"
+            "Days stalled: 136; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1822,7 +1966,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 54 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 136 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1834,7 +1978,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 74; stage: active"
+            "Days stalled: 156; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1846,7 +1990,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 74 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 156 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1858,7 +2002,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 84; stage: active"
+            "Days stalled: 166; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1870,7 +2014,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 84 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 166 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1882,7 +2026,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 171; stage: active"
+            "Days stalled: 253; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1894,7 +2038,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 171 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 253 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1906,7 +2050,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 107; stage: active"
+            "Days stalled: 189; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1918,7 +2062,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 107 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 189 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1930,7 +2074,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 34; stage: active"
+            "Days stalled: 116; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1942,7 +2086,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 34 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 116 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1954,7 +2098,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 51; stage: active"
+            "Days stalled: 133; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1966,7 +2110,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 51 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 133 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -1978,7 +2122,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 134; stage: active"
+            "Days stalled: 216; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -1990,7 +2134,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 134 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 216 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2002,7 +2146,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 48; stage: active"
+            "Days stalled: 130; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2014,7 +2158,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 48 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 130 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2026,7 +2170,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 81; stage: active"
+            "Days stalled: 163; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2038,7 +2182,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 81 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 163 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2050,7 +2194,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 82; stage: active"
+            "Days stalled: 164; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2062,7 +2206,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 82 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 164 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2074,7 +2218,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 296; stage: active"
+            "Days stalled: 378; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2086,7 +2230,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 296 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 378 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2098,7 +2242,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 373; stage: active"
+            "Days stalled: 455; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2110,7 +2254,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 373 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 455 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2122,7 +2266,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 206; stage: active"
+            "Days stalled: 288; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2134,7 +2278,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 206 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 288 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2146,7 +2290,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 131; stage: active"
+            "Days stalled: 213; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2158,7 +2302,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 131 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 213 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2170,7 +2314,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 40; stage: active"
+            "Days stalled: 122; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2182,7 +2326,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 40 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 122 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2194,7 +2338,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 214; stage: active"
+            "Days stalled: 296; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2206,7 +2350,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 214 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 296 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2218,7 +2362,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 140; stage: active"
+            "Days stalled: 222; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2230,7 +2374,31 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 140 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 222 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "rec3tj5yCPiDVn1nw",
+      "candidate_id": "recu1pKs6rxVuepvo",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 89; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "rec3tj5yCPiDVn1nw"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 89 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2242,7 +2410,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 187; stage: active"
+            "Days stalled: 269; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2254,7 +2422,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 187 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 269 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2266,7 +2434,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 90; stage: active"
+            "Days stalled: 172; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2278,7 +2446,55 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 90 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 172 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "recfAsDKz3GuTyYN7",
+      "candidate_id": "recxtoFya1C52rPvU",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 97; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "recfAsDKz3GuTyYN7"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 97 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "requires_human_review": true
+    },
+    {
+      "action": "escalate",
+      "application_id": "rec4u0qBA6qThFt4y",
+      "candidate_id": "recy7HAMx3AZIHj8D",
+      "caveats": [],
+      "confidence": "high",
+      "evidence": [
+        {
+          "caveats": [
+            "Days stalled: 97; stage: active"
+          ],
+          "filters": {},
+          "method": "stalled_application_check",
+          "query": null,
+          "record_ids": [
+            "rec4u0qBA6qThFt4y"
+          ],
+          "source": "analytics.stalled_applications",
+          "table": "Applications"
+        }
+      ],
+      "rationale": "Application has stalled in 'active' stage for 97 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2290,7 +2506,7 @@
       "evidence": [
         {
           "caveats": [
-            "Days stalled: 255; stage: active"
+            "Days stalled: 337; stage: active"
           ],
           "filters": {},
           "method": "stalled_application_check",
@@ -2302,7 +2518,7 @@
           "table": "Applications"
         }
       ],
-      "rationale": "Application has stalled in 'active' stage for 255 days (>= 28 days threshold). Founder or talent lead escalation required.",
+      "rationale": "Application has stalled in 'active' stage for 337 days (>= 28 days threshold). Founder or talent lead escalation required.",
       "requires_human_review": true
     },
     {
@@ -2424,179 +2640,11 @@
       ],
       "rationale": "Formal offer recoO05BwhJFXxkoc is in 'pending' status. Confirm candidate decision and advance onboarding.",
       "requires_human_review": true
-    },
-    {
-      "action": "review",
-      "application_id": "recxVB8SWzbnAnq8U",
-      "candidate_id": "rec3NCtlr82rF9BeT",
-      "caveats": [],
-      "confidence": "high",
-      "evidence": [
-        {
-          "caveats": [
-            "Days stalled: 23; stage: active"
-          ],
-          "filters": {},
-          "method": "stalled_application_check",
-          "query": null,
-          "record_ids": [
-            "recxVB8SWzbnAnq8U"
-          ],
-          "source": "analytics.stalled_applications",
-          "table": "Applications"
-        }
-      ],
-      "rationale": "Application has stalled in 'active' stage for 23 days (>= 14 days threshold). Hiring manager review recommended.",
-      "requires_human_review": true
-    },
-    {
-      "action": "review",
-      "application_id": "rec7cb2WglX99Sscp",
-      "candidate_id": "rec7fQTBfnulCrHov",
-      "caveats": [],
-      "confidence": "medium",
-      "evidence": [
-        {
-          "caveats": [
-            "Days stalled: 16; stage: active"
-          ],
-          "filters": {},
-          "method": "stalled_application_check",
-          "query": null,
-          "record_ids": [
-            "rec7cb2WglX99Sscp"
-          ],
-          "source": "analytics.stalled_applications",
-          "table": "Applications"
-        }
-      ],
-      "rationale": "Application has stalled in 'active' stage for 16 days (>= 14 days threshold). Hiring manager review recommended.",
-      "requires_human_review": true
-    },
-    {
-      "action": "review",
-      "application_id": "recBfNHuUvGpdx7Bl",
-      "candidate_id": "recDAS27PGHKYk5Np",
-      "caveats": [],
-      "confidence": "high",
-      "evidence": [
-        {
-          "caveats": [
-            "Days stalled: 26; stage: active"
-          ],
-          "filters": {},
-          "method": "stalled_application_check",
-          "query": null,
-          "record_ids": [
-            "recBfNHuUvGpdx7Bl"
-          ],
-          "source": "analytics.stalled_applications",
-          "table": "Applications"
-        }
-      ],
-      "rationale": "Application has stalled in 'active' stage for 26 days (>= 14 days threshold). Hiring manager review recommended.",
-      "requires_human_review": true
-    },
-    {
-      "action": "review",
-      "application_id": "rec959Duu6N8Mxuc8",
-      "candidate_id": "recVhynlKLvxOuWDJ",
-      "caveats": [],
-      "confidence": "medium",
-      "evidence": [
-        {
-          "caveats": [
-            "Days stalled: 16; stage: active"
-          ],
-          "filters": {},
-          "method": "stalled_application_check",
-          "query": null,
-          "record_ids": [
-            "rec959Duu6N8Mxuc8"
-          ],
-          "source": "analytics.stalled_applications",
-          "table": "Applications"
-        }
-      ],
-      "rationale": "Application has stalled in 'active' stage for 16 days (>= 14 days threshold). Hiring manager review recommended.",
-      "requires_human_review": true
-    },
-    {
-      "action": "review",
-      "application_id": "recXsExBlwzoYosWe",
-      "candidate_id": "recayha9Fwa1ucbaP",
-      "caveats": [],
-      "confidence": "medium",
-      "evidence": [
-        {
-          "caveats": [
-            "Days stalled: 20; stage: active"
-          ],
-          "filters": {},
-          "method": "stalled_application_check",
-          "query": null,
-          "record_ids": [
-            "recXsExBlwzoYosWe"
-          ],
-          "source": "analytics.stalled_applications",
-          "table": "Applications"
-        }
-      ],
-      "rationale": "Application has stalled in 'active' stage for 20 days (>= 14 days threshold). Hiring manager review recommended.",
-      "requires_human_review": true
-    },
-    {
-      "action": "review",
-      "application_id": "recfAsDKz3GuTyYN7",
-      "candidate_id": "recxtoFya1C52rPvU",
-      "caveats": [],
-      "confidence": "medium",
-      "evidence": [
-        {
-          "caveats": [
-            "Days stalled: 15; stage: active"
-          ],
-          "filters": {},
-          "method": "stalled_application_check",
-          "query": null,
-          "record_ids": [
-            "recfAsDKz3GuTyYN7"
-          ],
-          "source": "analytics.stalled_applications",
-          "table": "Applications"
-        }
-      ],
-      "rationale": "Application has stalled in 'active' stage for 15 days (>= 14 days threshold). Hiring manager review recommended.",
-      "requires_human_review": true
-    },
-    {
-      "action": "review",
-      "application_id": "rec4u0qBA6qThFt4y",
-      "candidate_id": "recy7HAMx3AZIHj8D",
-      "caveats": [],
-      "confidence": "medium",
-      "evidence": [
-        {
-          "caveats": [
-            "Days stalled: 15; stage: active"
-          ],
-          "filters": {},
-          "method": "stalled_application_check",
-          "query": null,
-          "record_ids": [
-            "rec4u0qBA6qThFt4y"
-          ],
-          "source": "analytics.stalled_applications",
-          "table": "Applications"
-        }
-      ],
-      "rationale": "Application has stalled in 'active' stage for 15 days (>= 14 days threshold). Hiring manager review recommended.",
-      "requires_human_review": true
     }
   ],
   "confidence": "high",
   "cost_appendix": "### External Recruitment Cost Research (Strictly Isolated)\n\n> **Note:** The benchmarks below are compiled from external industry surveys (SHRM, LinkedIn Talent Solutions) and are provided solely as context for founder planning. They are NOT derived from Airtable data and do NOT modify any baseline funnel or conversion metrics.\n\n| Category / Channel | Industry Benchmark Range | Operational Context |\n|---|---|---|\n| Software Engineering | $4,500 - $6,000 (SHRM Benchmark) | Blended cost including sourcing, time-to-hire, and tooling |\n| Sales & Go-to-Market | $3,800 - $5,200 | High volume screening with lower assessment overhead |\n| Leadership / Executive | $14,000 - $22,000 | Retained search partner fee structure |\n| External Recruiting Agency | 20% - 25% of first-year base salary | Contingent search fee on placed candidates |\n| Job Boards & Aggregators | $300 - $600 per recruiter seat | Fixed monthly subscription cost |\n| Employee Referral Bonus | $2,000 - $5,000 for technical roles | Cash bonus paid after 90 days retention |\n\n**Founder takeaway:** Prioritize employee referrals and high-conversion inbound channels to minimize agency fee exposure while monitoring pipeline effort yield.",
-  "executive_summary": "Recruitment Intelligence Daily Briefing (daily): Profiled 892 records across 8 tables. Top recruiting source is 'Referral'. Offer acceptance rate is 72.2%. Primary bottleneck is 'interview_to_offer'. Found 103 stalled application(s) requiring review and 0 data quality finding(s).",
+  "executive_summary": "Recruitment Intelligence Daily Briefing (daily): Profiled 892 records across 8 tables. Top recruiting source is 'Referral'. Offer acceptance rate is 72.2%. Primary bottleneck is 'interview_to_offer'. Found 105 stalled application(s) requiring review and 0 data quality finding(s).",
   "findings": [
     {
       "affected_records": [],
@@ -2795,7 +2843,7 @@
       "title": "Departmental Headcount Budget & Fill Rate"
     }
   ],
-  "generated_at": "2026-09-02T00:00:00+00:00",
+  "generated_at": "2026-11-23T13:18:27.545777+00:00",
   "metrics": [
     {
       "caveats": [
@@ -4343,7 +4391,7 @@
       "name": "mean_application_age_days",
       "numerator": null,
       "unit": "days",
-      "value": 147.3
+      "value": 229.3
     },
     {
       "caveats": [],
@@ -4363,7 +4411,7 @@
       "name": "median_application_age_days",
       "numerator": null,
       "unit": "days",
-      "value": 99
+      "value": 181
     },
     {
       "caveats": [],
@@ -4383,7 +4431,7 @@
       "name": "max_application_age_days",
       "numerator": null,
       "unit": "days",
-      "value": 475
+      "value": 557
     },
     {
       "caveats": [
@@ -4456,14 +4504,14 @@
         }
       ],
       "name": "stalled_applications_count",
-      "numerator": 103,
+      "numerator": 105,
       "unit": "applications",
-      "value": 103
+      "value": 105
     }
   ],
   "next_actions": [
     "Review prioritized advisory candidate action queue with hiring owners (no automated rejections).",
-    "Triage 103 stalled application(s) to unblock candidates or close stale processes.",
+    "Triage 105 stalled application(s) to unblock candidates or close stale processes.",
     "Address drop-off attrition at the 'interview_to_offer' transition.",
     "Monday 09:00: Triage critical offer discrepancies (duplicate offers and salary band overruns).",
     "Monday 10:00: Rebalance screening workloads from overloaded recruiters (Ankit, Nadia) to Chetan.",
@@ -4472,17 +4520,18 @@
     "Monday 15:30: Realign headcount targets with department leads for under-hired departments."
   ],
   "period": "daily",
-  "period_end": "2026-09-02",
-  "period_start": "2026-09-02",
+  "period_end": "2026-11-23",
+  "period_start": "2026-11-23",
   "quality_warnings": [],
   "urgent_items": [
-    "103 active application(s) stalled for >= 14 days requiring prompt founder/hiring manager review.",
+    "105 active application(s) stalled for >= 14 days requiring prompt founder/hiring manager review.",
     "Compensation review: Neha Agarwal (Junior Content Marketer) offered 92.5% over salary band. Founder sign-off required.",
     "Compensation review: Elena Okonkwo (Junior Product Manager) offered 51.2% over salary band. Founder sign-off required.",
-    "Stale offer follow-up: Ravi Reddy has pending offer aged 283 days. Treat as lost and close current process.",
-    "Stale offer follow-up: Kavya Mehta has pending offer aged 246 days. Treat as lost and close current process.",
-    "Stale offer follow-up: Mohit Patel has pending offer aged 240 days. Treat as lost and close current process.",
-    "Stale offer follow-up: Mohit Patel has pending offer aged 97 days. Treat as lost and close current process."
+    "Stale offer follow-up: Ravi Reddy has pending offer aged 365 days. Treat as lost and close current process.",
+    "Stale offer follow-up: Kavya Mehta has pending offer aged 328 days. Treat as lost and close current process.",
+    "Stale offer follow-up: Mohit Patel has pending offer aged 322 days. Treat as lost and close current process.",
+    "Stale offer follow-up: Mohit Patel has pending offer aged 179 days. Treat as lost and close current process.",
+    "Stale offer follow-up: Neha Agarwal has pending offer aged 117 days. Treat as lost and close current process."
   ],
   "what_changed": [
     "Profiled 892 records across 8 recruitment tables.",
