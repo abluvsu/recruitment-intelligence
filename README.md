@@ -5,7 +5,8 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB.svg?logo=python&logoColor=white)](https://python.org)
-[![Tests](https://img.shields.io/badge/Tests-485%20passed-brightgreen.svg)](tests/)
+[![CI](https://github.com/abluvsu/recruitment-intelligence-system/actions/workflows/ci.yml/badge.svg)](https://github.com/abluvsu/recruitment-intelligence-system/actions)
+[![Tests](https://img.shields.io/badge/Tests-511%20passed-brightgreen.svg)](tests/)
 [![Offline First](https://img.shields.io/badge/Offline-First-orange.svg)](#offline-first)
 [![AI Agent Ready](https://img.shields.io/badge/AI%20Agent-Ready-8A2BE2.svg)](#use-with-ai-coding-agents)
 
